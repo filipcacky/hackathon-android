@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Models;
+using Xamarin.Forms;
 
 namespace WifiPi.Mobile.ViewModels
 {
 	public class HomeViewModel : BaseViewModel
 	{
+
 		public HomeViewModel()
 		{
 			this.Title = "Přehled";
