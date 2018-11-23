@@ -44,7 +44,7 @@ namespace WifiPi.Mobile.Views.Menu
 			{
 				RootNavigationPage = new NavigationPage(page)
 				{
-					BarBackgroundColor = (Color)App.Current.Resources["PrimaryBackgroundColor"],
+					BarBackgroundColor = (Color)App.Current.Resources["PrimaryToolbarColor"],
 					BarTextColor = Color.White
 				};
 				this.Detail = RootNavigationPage;

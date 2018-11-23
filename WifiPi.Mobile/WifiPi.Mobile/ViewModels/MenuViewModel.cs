@@ -49,7 +49,7 @@ namespace WifiPi.Mobile.ViewModels
 			var menuItems = new List<MenuItemModel>();
 			menuItems.Add(new MenuItemModel()
 			{
-				Title = "Home",
+				Title = "Přehled",
 				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
 				Icon = "\uf6d5",
 				Selected = true,
@@ -57,7 +57,7 @@ namespace WifiPi.Mobile.ViewModels
 			});
 			menuItems.Add(new MenuItemModel()
 			{
-				Title = "Home",
+				Title = "Test",
 				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
 				Icon = "\uf6d5",
 				Selected = false,
@@ -65,7 +65,7 @@ namespace WifiPi.Mobile.ViewModels
 			});
 			menuItems.Add(new MenuItemModel()
 			{
-				Title = "Home",
+				Title = "Test",
 				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
 				Icon = "\uf6d5",
 				Selected = false,

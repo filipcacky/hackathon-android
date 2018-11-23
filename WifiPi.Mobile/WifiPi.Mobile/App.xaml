@@ -8,14 +8,23 @@
 			<x:String x:Key="FontAwesomeRegular">fa-regular</x:String>
 			<x:String x:Key="FontAwesomeSolid">fa-solid</x:String>
 
-			<Color x:Key="PrimaryBackgroundColor">#4c6ef5</Color>
+			<Color x:Key="PrimaryBackgroundColor">#ffffff</Color>
 			<Color x:Key="SecondaryBackgroundColor">#fcbe05</Color>
-			<Color x:Key="PrimaryDarkBackgroundColor">#3853bc</Color>
+			<Color x:Key="PrimaryToolbarColor">#4c6ef5</Color>
+			<Color x:Key="PrimaryDarkToolbarColor">#3853bc</Color>
+			<Color x:Key="PrimaryTextColor">#000000</Color>
 
 			<x:Double x:Key="IconLabelFontSize">21</x:Double>
 			<x:Double x:Key="SeparatorHeight">1</x:Double>
 			<x:Double x:Key="TitleTextSize">23</x:Double>
 
+			<x:Double x:Key="DefaultMarginValue">10</x:Double>
+			
+			<Thickness x:Key="DefaultMargin"
+					   Left="{StaticResource DefaultMarginValue}" Top="{StaticResource DefaultMarginValue}" Right="{StaticResource DefaultMarginValue}"
+					   Bottom="{StaticResource DefaultMarginValue}" />
+			
+			
 			<!-- MENU -->
 			<Style TargetType="Label" x:Key="MenuIsSelected">
 				<Setter Property="TextColor" Value="{StaticResource SecondaryBackgroundColor}" />
@@ -25,7 +34,7 @@
 				<Setter Property="VerticalOptions" Value="Center"/>
 			</Style>
 			<Style TargetType="Label" x:Key="MenuIsNotSelected">
-				<Setter Property="TextColor" Value="{StaticResource PrimaryBackgroundColor}" />
+				<Setter Property="TextColor" Value="{StaticResource PrimaryToolbarColor}" />
 				<Setter Property="HorizontalOptions" Value="Center"/>
 				<Setter Property="HorizontalTextAlignment" Value="Center"/>
 				<Setter Property="VerticalTextAlignment" Value="Center"/>
@@ -34,6 +43,7 @@
 
 			<!-- CONVERTERS -->
 			<converters:MenuStyleConverter x:Key="MenuStyleConverter" IsNotSelected="{StaticResource MenuIsNotSelected}" IsSelected="{StaticResource MenuIsSelected}"/>
+			<converters:ActivityConverter x:Key="ActivityConverter" />
 
 
 		</ResourceDictionary>

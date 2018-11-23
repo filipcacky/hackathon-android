@@ -10,7 +10,7 @@
 			           SeparatorVisibility="None" Margin="0" RowHeight="60">
 
 				<ListView.Header>
-					<BoxView HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryBackgroundColor}" HeightRequest="100">
+					<BoxView HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryToolbarColor}" HeightRequest="100">
 					</BoxView>
 				</ListView.Header>
 
