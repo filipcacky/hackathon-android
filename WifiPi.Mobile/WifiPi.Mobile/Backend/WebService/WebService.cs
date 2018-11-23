@@ -46,6 +46,11 @@ namespace WifiPi.Mobile.Backend.WebService
 			/// </summary>
 			public static string Now => "now/";
 
+			/// <summary>
+			/// Returns device specific events
+			/// </summary>
+			public static string Events => "events/";
+
 			#endregion
 		}
 

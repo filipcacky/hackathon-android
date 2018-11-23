@@ -16,14 +16,13 @@ namespace WifiPi.Mobile.Backend.Managers
 			var service = new DataUpdateManager();
 
 			byte[] dataAsByteArray = await service.GetAllGeneralData();
-			string dataAsJson = this.ReadMemoryToString(dataAsByteArray);
+			string dataAsJson = DataManager.ReadMemoryToString(dataAsByteArray);
 
 			AllDevices = JsonConvert.DeserializeObject<DeviceGeneralInfo[]>(dataAsJson);
 			return AllDevices;
 		}
 
-
-		private string ReadMemoryToString(byte[] memory)
+		public static string ReadMemoryToString(byte[] memory)
 		{
 			string dataAsJson;
 

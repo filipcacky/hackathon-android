@@ -49,10 +49,20 @@ namespace WifiPi.Mobile.Backend.Managers
 			return data;
 		}
 
-		public async Task<byte[]> GetNowStatistics(string guid)
+		public async Task<byte[]> GetNowStatisticsForDevice(string guid)
 		{
 			var repo = new WebRepository();
 			var path = WebRepository.Paths.BasePath(guid) + WebRepository.Paths.Now;
+
+			var data = await repo.GetFileFromUrl(path);
+
+			return data;
+		}
+
+		public async Task<byte[]> GetEventsDataForDevice(string guid)
+		{
+			var repo = new WebRepository();
+			var path = WebRepository.Paths.BasePath(guid) + WebRepository.Paths.Events;
 
 			var data = await repo.GetFileFromUrl(path);
 
