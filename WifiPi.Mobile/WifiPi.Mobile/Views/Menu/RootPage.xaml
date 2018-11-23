@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:menu="clr-namespace:WifiPi.Mobile.Views.Menu"
+			 x:Class="WifiPi.Mobile.Views.Menu.RootPage">
+   	<MasterDetailPage.Master>
+		<menu:MenuPage x:Name="MenuPage" />
+	</MasterDetailPage.Master>
+</MasterDetailPage>

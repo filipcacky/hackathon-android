@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:components="clr-namespace:WifiPi.Mobile.Views.Components"
+			 x:Class="WifiPi.Mobile.Views.Menu.MenuPage"
+			  Icon="menuIcon.png" Title="Menu">
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="FillAndExpand" Spacing="0" Margin="0" BackgroundColor="White">
+			<ListView  x:Name="MenuListView" VerticalOptions="FillAndExpand" ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}" 
+			           SeparatorVisibility="None" Margin="0" RowHeight="60">
+
+				<ListView.Header>
+					<BoxView HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryBackgroundColor}" HeightRequest="100">
+					</BoxView>
+				</ListView.Header>
+
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid  HorizontalOptions="FillAndExpand" BackgroundColor="White">
+								<Grid.Padding>
+									<Thickness
+										Left="10" Bottom="0" Right="0" Top="0"></Thickness>
+								</Grid.Padding>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="60"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+
+								<components:IconLabel FontFamily="{Binding FontFamily}" Grid.Column="0" Text="{Binding Icon}"
+								                     Style="{Binding Selected,Converter={StaticResource MenuStyleConverter}}" FontSize="{StaticResource IconLabelFontSize}"
+								                     VerticalOptions="Center" HorizontalOptions="Center" />
+								<Label Grid.Column="1" Text="{Binding Title}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="{StaticResource TitleTextSize}"
+								       Style="{Binding Selected,Converter={StaticResource MenuStyleConverter}}" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
