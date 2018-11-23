@@ -10,6 +10,7 @@
 
 			<Color x:Key="PrimaryBackgroundColor">#ffffff</Color>
 			<Color x:Key="SecondaryBackgroundColor">#fcbe05</Color>
+			<Color x:Key="FramePrimaryColor">#e8eaed</Color>
 			<Color x:Key="PrimaryToolbarColor">#4c6ef5</Color>
 			<Color x:Key="PrimaryDarkToolbarColor">#3853bc</Color>
 			<Color x:Key="PrimaryTextColor">#000000</Color>
@@ -63,6 +64,7 @@
 			<converters:MenuStyleConverter x:Key="MenuStyleConverter" IsNotSelected="{StaticResource MenuIsNotSelected}" IsSelected="{StaticResource MenuIsSelected}"/>
 			<converters:ActivityConverter x:Key="ActivityConverter" />
 
+	
 
 		</ResourceDictionary>
 	</Application.Resources>

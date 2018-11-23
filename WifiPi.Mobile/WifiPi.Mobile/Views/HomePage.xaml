@@ -6,7 +6,6 @@
 			 Title="{Binding Title}">
 	
 	<ContentPage.ToolbarItems>
-		<ToolbarItem x:Name="FilterToolbarIcon" Icon="ic_filter" Text="Filter" Command="{Binding FilterCommand}"/>
 		<ToolbarItem Icon="ic_refresh" Text="Aktualizovat" Command="{Binding RefreshCommand}"/>
 	</ContentPage.ToolbarItems>
     <ContentPage.Content>

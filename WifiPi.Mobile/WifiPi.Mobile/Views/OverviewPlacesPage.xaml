@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:components="clr-namespace:WifiPi.Mobile.Views.Components"
+			 x:Class="WifiPi.Mobile.Views.OverviewPlacesPage"
+			 Title="Places">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style TargetType="components:IconLabel" x:Key="OverviewIconLabelStyle">
+				<Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+				<Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolid}"></Setter>
+				<Setter Property="FontSize" Value="25"></Setter>
+				<Setter Property="Margin" Value="{StaticResource DefaultMargin}"></Setter>
+				<Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
+			</Style>
+			<Style TargetType="Label" x:Key="OverviewDefaultLabel">
+				<Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+				<Setter Property="HorizontalTextAlignment" Value="Start"></Setter>
+				<Setter Property="FontSize" Value="30"></Setter>
+				<Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
+			</Style>
+
+			<!-- Icons FA -->
+			<x:String x:Key="Coffee">&#xf0f4;</x:String>
+			<x:String x:Key="Pub">&#xf0fc;</x:String>
+			<x:String x:Key="Restaurant">&#xf2e7;</x:String>
+			<x:String x:Key="Gym">&#xf44b;</x:String>
+			<x:String x:Key="Shop">&#xf07a;</x:String>
+			<x:String x:Key="Library">&#xf5da;</x:String>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<ScrollView Padding="{StaticResource DefaultMargin}" Margin="0" >
+			<StackLayout Spacing="{StaticResource DefaultDoubleMarginValue}">
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="2"/>
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="4*" />
+						</Grid.ColumnDefinitions>
+						<components:IconLabel  Text="{StaticResource Coffee}" Style="{StaticResource OverviewIconLabelStyle}"/>
+						<Label Grid.Column="1" Text="Kavárny" Style="{StaticResource OverviewDefaultLabel}"/>
+					</Grid>
+				</Frame>
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="0"/>
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="4*" />
+						</Grid.ColumnDefinitions>
+						<components:IconLabel  Text="{StaticResource Pub}" Style="{StaticResource OverviewIconLabelStyle}"/>
+						<Label Grid.Column="1" Text="Hospody" Style="{StaticResource OverviewDefaultLabel}"/>
+					</Grid>
+				</Frame>
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="1"/>
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="4*" />
+						</Grid.ColumnDefinitions>
+						<components:IconLabel  Text="{StaticResource Restaurant}" Style="{StaticResource OverviewIconLabelStyle}"/>
+						<Label Grid.Column="1" Text="Restaurace" Style="{StaticResource OverviewDefaultLabel}"/>
+					</Grid>
+				</Frame>
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="3"/>
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="4*" />
+						</Grid.ColumnDefinitions>
+						<components:IconLabel  Text="{StaticResource Gym}" Style="{StaticResource OverviewIconLabelStyle}"/>
+						<Label Grid.Column="1" Text="Posilovny" Style="{StaticResource OverviewDefaultLabel}"/>
+					</Grid>
+				</Frame>
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="5"/>
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="4*" />
+						</Grid.ColumnDefinitions>
+						<components:IconLabel  Text="{StaticResource Shop}" Style="{StaticResource OverviewIconLabelStyle}"/>
+						<Label Grid.Column="1" Text="Obchody" Style="{StaticResource OverviewDefaultLabel}"/>
+					</Grid>
+				</Frame>
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+					<Frame.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="4"/>
+					</Frame.GestureRecognizers>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="4*" />
+						</Grid.ColumnDefinitions>
+						<components:IconLabel  Text="{StaticResource Library}" Style="{StaticResource OverviewIconLabelStyle}"/>
+						<Label Grid.Column="1" Text="Knihovny" Style="{StaticResource OverviewDefaultLabel}"/>
+					</Grid>
+				</Frame>
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

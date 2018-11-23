@@ -14,6 +14,8 @@ namespace WifiPi.Mobile.Droid
 		{
 			base.OnCreate(savedInstanceState);
 
+		
+
 			var intent = new Intent(this, typeof(MainActivity));
 			this.StartActivity(intent);
 		}
