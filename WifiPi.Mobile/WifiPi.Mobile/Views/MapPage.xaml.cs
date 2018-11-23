@@ -58,14 +58,6 @@ namespace WifiPi.Mobile.Views
 			this.CreatePins();
 			
 		}
-
-		protected async override void OnAppearing()
-		{
-			base.OnAppearing();
-			if(await DependencyService.Get<IRuntimePermissions>().GetLocationPermission())
-			{
-				this.Map.IsShowingUser = true;
-			}
-		}
+		
 	}
 }
