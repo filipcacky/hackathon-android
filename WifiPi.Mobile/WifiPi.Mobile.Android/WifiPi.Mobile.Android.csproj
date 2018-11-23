@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyServices\FileHelper.cs" />
+    <Compile Include="DependencyServices\RuntimePermissions.cs" />
     <Compile Include="DependencyServices\Settings.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\IconLabelRenderer.cs" />

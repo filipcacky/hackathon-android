@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Backend.Managers;
+using WifiPi.Mobile.DependencyServices;
 using WifiPi.Mobile.Models;
 using WifiPi.Mobile.ViewModels;
 using WifiPi.Mobile.Views.Menu;
@@ -49,6 +50,7 @@ namespace WifiPi.Mobile.Views
 			this.viewModel.BackUpList = new List<DeviceGeneralInfo>(await dataManager.GetAll()); 
 
 			this.viewModel.Items = this.viewModel.BackUpList;
+			var result = await DependencyService.Get<IRuntimePermissions>().GetLocationPermission();
 		}
 	}
 }
