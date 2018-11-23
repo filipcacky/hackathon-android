@@ -50,7 +50,6 @@ namespace WifiPi.Mobile.Views
 			this.viewModel.BackUpList = new List<DeviceGeneralInfo>(await dataManager.GetAll()); 
 
 			this.viewModel.Items = this.viewModel.BackUpList;
-			var result = await DependencyService.Get<IRuntimePermissions>().GetLocationPermission();
 		}
 	}
 }

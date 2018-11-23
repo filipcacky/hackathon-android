@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WifiPi.Mobile.DependencyServices;
 using WifiPi.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,6 +19,16 @@ namespace WifiPi.Mobile.Views
 			InitializeComponent();
 			vM = new MapViewModel();
 			this.BindingContext = this.vM;
+			
+		}
+
+		protected async override void OnAppearing()
+		{
+			base.OnAppearing();
+			if(await DependencyService.Get<IRuntimePermissions>().GetLocationPermission())
+			{
+				this.Map.IsShowingUser = true;
+			}
 		}
 	}
 }
