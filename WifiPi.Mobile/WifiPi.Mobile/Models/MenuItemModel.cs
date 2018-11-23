@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Xamarin.Forms;
 
 namespace WifiPi.Mobile.Models
 {
-     public class MenuItemModel : INotifyPropertyChanged
+	public class MenuItemModel : INotifyPropertyChanged
 	{
 		#region PropertyChanged
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -36,6 +37,8 @@ namespace WifiPi.Mobile.Models
 				this.OnPropertyChanged();
 			}
 		}
+
+		public Page Page { get; set; }
 
 
 	}

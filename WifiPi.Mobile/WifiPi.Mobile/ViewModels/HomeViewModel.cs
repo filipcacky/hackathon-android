@@ -13,40 +13,43 @@ namespace WifiPi.Mobile.ViewModels
 	public class HomeViewModel : BaseViewModel
 	{
 
-		public HomeViewModel()
-		{
-			this.Title = "Places";
-			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
-		//	this.FilterCommand = new Command(this.FilterCommand_Execute);
-		}
-
 		public HomeViewModel(TypeEnum type)
 		{
-			this.Title = type.ToString();
+			this.Title = type.ToString() + " - WhereToGo";
 			this.type = type;
 			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
-		//	this.FilterCommand = new Command(this.FilterCommand_Execute);
+			//	this.FilterCommand = new Command(this.FilterCommand_Execute);
 		}
 
 		private List<DeviceGeneralInfo> Search()
 		{
 			var output = new List<DeviceGeneralInfo>();
-			if (this.BackUpList.Count > 0)
+			if (this.backUpList.Count > 0)
 			{
-				output = this.BackUpList.Where(item => item.Name.IndexOf(this.searchText, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
+				output = this.backUpList.Where(item => item.Name.IndexOf(this.searchText, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
 				item.Info.IndexOf(this.searchText, StringComparison.CurrentCultureIgnoreCase) >= 0).ToList();
 			}
 			return output;
+		}
+
+		public async Task LoadDevices(bool force = false)
+		{
+			this.IsBusy = true;
+
+			var dataManager = new DeviceGeneralInfoManager();
+			var list = new List<DeviceGeneralInfo>(await dataManager.GetAll(force));
+
+			this.backUpList = list.Where(item => item.PlaceType == this.type).ToList();
+			this.Items = this.backUpList;
+
+			this.IsBusy = false;
 		}
 
 		#region Commands
 		public Command RefreshCommand { get; set; }
 		private async void RefreshCommand_Execute()
 		{
-			this.IsBusy = true;
-			this.BackUpList = new List<DeviceGeneralInfo>(await new DeviceGeneralInfoManager().GetAll(true));
-			this.Items = this.BackUpList;
-			this.IsBusy = false;
+			await this.LoadDevices(true);
 		}
 
 		//public Command FilterCommand { get; set; }
@@ -80,17 +83,12 @@ namespace WifiPi.Mobile.ViewModels
 				}
 				else
 				{
-					this.Items = this.BackUpList;
+					this.Items = this.backUpList;
 				}
 				OnPropertyChanged();
 			}
 		}
 
-		public List<DeviceGeneralInfo> BackUpList
-		{
-			get { return this.backUpList; }
-			set { this.backUpList = value; this.OnPropertyChanged(); }
-		}
 
 		#endregion
 	}

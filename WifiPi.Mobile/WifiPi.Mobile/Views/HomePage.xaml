@@ -6,7 +6,7 @@
 			 Title="{Binding Title}">
 	
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Icon="ic_refresh" Text="Aktualizovat" Command="{Binding RefreshCommand}"/>
+		<ToolbarItem Icon="ic_refresh" Text="Refresh" Command="{Binding RefreshCommand}"/>
 	</ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">

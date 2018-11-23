@@ -17,16 +17,11 @@ namespace WifiPi.Mobile.Views
 	public partial class HomePage : ContentPage
 	{
 		private HomeViewModel viewModel;
+		public static TypeEnum PlaceType;
 		public HomePage()
 		{
 			InitializeComponent();
-			this.viewModel = new HomeViewModel();
-			this.BindingContext = this.viewModel;
-		}
-		public HomePage(TypeEnum type)
-		{
-			InitializeComponent();
-			this.viewModel = new HomeViewModel(type);
+			this.viewModel = new HomeViewModel(PlaceType);
 			this.BindingContext = this.viewModel;
 		}
 
@@ -53,10 +48,8 @@ namespace WifiPi.Mobile.Views
 		{
 			//TODO PŘEMÍSTIT DO VIEWMODELU NAHRÁNÍ ITEMU + UDĚLAT FILTR PODLE ENUMU (this.type)
 			base.OnAppearing();
-			var dataManager = new DeviceGeneralInfoManager();
-			this.viewModel.BackUpList = new List<DeviceGeneralInfo>(await dataManager.GetAll()); 
-
-			this.viewModel.Items = this.viewModel.BackUpList;
+			
+			await this.viewModel.LoadDevices();
 		}
 	}
 }
