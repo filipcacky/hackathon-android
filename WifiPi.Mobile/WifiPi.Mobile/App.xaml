@@ -13,18 +13,25 @@
 			<Color x:Key="PrimaryToolbarColor">#4c6ef5</Color>
 			<Color x:Key="PrimaryDarkToolbarColor">#3853bc</Color>
 			<Color x:Key="PrimaryTextColor">#000000</Color>
+			<Color x:Key="SecondaryTextColor">#4c6ef5</Color>
+			<Color x:Key="ListViewItemBackground">#dee1e5</Color>
 
 			<x:Double x:Key="IconLabelFontSize">21</x:Double>
 			<x:Double x:Key="SeparatorHeight">1</x:Double>
 			<x:Double x:Key="TitleTextSize">23</x:Double>
 
 			<x:Double x:Key="DefaultMarginValue">10</x:Double>
-			
+			<x:Double x:Key="DefaultDoubleMarginValue">20</x:Double>
+
 			<Thickness x:Key="DefaultMargin"
 					   Left="{StaticResource DefaultMarginValue}" Top="{StaticResource DefaultMarginValue}" Right="{StaticResource DefaultMarginValue}"
 					   Bottom="{StaticResource DefaultMarginValue}" />
 			
-			
+			<Thickness x:Key="DefaultDoubleMargin"
+					   Left="{StaticResource DefaultDoubleMarginValue}" Top="{StaticResource DefaultDoubleMarginValue}" Right="{StaticResource DefaultDoubleMarginValue}"
+					   Bottom="{StaticResource DefaultDoubleMarginValue}" />
+
+
 			<!-- MENU -->
 			<Style TargetType="Label" x:Key="MenuIsSelected">
 				<Setter Property="TextColor" Value="{StaticResource SecondaryBackgroundColor}" />

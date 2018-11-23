@@ -4,16 +4,27 @@
              x:Class="WifiPi.Mobile.Views.HomePage"
 			 BackgroundColor="{StaticResource PrimaryBackgroundColor}">
     <ContentPage.Content>
-        <Grid Padding="0" RowSpacing="0" ColumnSpacing="0" Margin="{StaticResource DefaultMargin}" >
-			<StackLayout IsVisible="{Binding IsBusy}">
+        <Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">
+			<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">
 				<ActivityIndicator Color="{StaticResource SecondaryBackgroundColor}" HeightRequest="50" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}">
 					
 				</ActivityIndicator>
 			</StackLayout>
 			
-			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}">
-				<ListView ItemsSource="{Binding Items}">
-					
+			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" VerticalOptions="FillAndExpand">
+				<SearchBar Text="{Binding SearchText}" Placeholder="Vyhledat" TextChanged="SearchBar_TextChanged"/>
+				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout BackgroundColor="{StaticResource ListViewItemBackground}">
+									<Label Text="{Binding Name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}"  Margin="{StaticResource DefaultMargin}"></Label>
+									<Label Text="{Binding Info}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  Margin="{StaticResource DefaultMargin}"/>
+									<Label HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
 				</ListView>
 			</StackLayout>
 		</Grid>
