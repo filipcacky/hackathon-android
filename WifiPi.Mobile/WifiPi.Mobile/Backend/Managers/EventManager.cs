@@ -21,5 +21,17 @@ namespace WifiPi.Mobile.Backend.Managers
 			return JsonConvert.DeserializeObject<EventItem[]>(dataAsJson);
 
 		}
+
+		public async Task<EventItem[]> GetEventsToday()
+		{
+			var repo = new WebRepository();
+			var path = WebService.WebRepository.Paths.Events;
+
+			var data = await repo.GetFileFromUrl(path);
+
+			var dataAsJson = DataManager.ReadMemoryToString(data);
+
+			return JsonConvert.DeserializeObject<EventItem[]>(dataAsJson);
+		}
 	}
 }
