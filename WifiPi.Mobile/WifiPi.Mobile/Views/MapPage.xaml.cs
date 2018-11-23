@@ -8,6 +8,7 @@ using WifiPi.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using WifiPi.Mobile.DependencyServices;
 
 namespace WifiPi.Mobile.Views
 {
@@ -62,5 +63,6 @@ namespace WifiPi.Mobile.Views
 		{
 			this.Map.ZoomOnAll();
 		}
+		
 	}
 }
