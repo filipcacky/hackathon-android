@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WifiPi.Mobile.Views.HomePage"
-			 BackgroundColor="{StaticResource PrimaryBackgroundColor}">
+			 BackgroundColor="{StaticResource PrimaryBackgroundColor}"
+			 Title="{Binding Title}">
+	
+	<ContentPage.ToolbarItems>
+		<ToolbarItem x:Name="FilterToolbarIcon" Icon="ic_filter" Text="Filtrovat" Command="{Binding FilterCommand}"/>
+		<ToolbarItem Icon="ic_refresh" Text="Aktualizovat" Command="{Binding RefreshCommand}"/>
+	</ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">
 			<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">

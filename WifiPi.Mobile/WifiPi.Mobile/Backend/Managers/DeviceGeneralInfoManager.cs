@@ -7,15 +7,21 @@ namespace WifiPi.Mobile.Backend.Managers
 	{
 		public async Task<DeviceGeneralInfo[]> GetAll(bool force = false)
 		{
-			if (DataManager.AllDevices == null && !force)
+			if (DataManager.AllDevices == null || force)
 			{
 				var manager = new DataManager();
 				return await manager.DownloadGeneralInfo();
 			}
 			else
 			{
-			return DataManager.AllDevices;
+				return DataManager.AllDevices;
 			}
+		}
+
+		public async Task<DeviceGeneralInfo> GetDevice(string guid)
+		{
+			var manager = new DataManager();
+			return await manager.DownloadSpecificGeneralInfo(guid);
 		}
 	}
 }
