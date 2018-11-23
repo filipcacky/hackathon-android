@@ -8,6 +8,11 @@ namespace WifiPi.Mobile.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{
+		public BaseViewModel()
+		{
+			this.IsBusy = false;
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

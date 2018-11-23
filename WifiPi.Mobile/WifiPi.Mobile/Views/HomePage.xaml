@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WifiPi.Mobile.Views.HomePage">
+             x:Class="WifiPi.Mobile.Views.HomePage"
+			 BackgroundColor="{StaticResource PrimaryBackgroundColor}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Padding="0" RowSpacing="0" ColumnSpacing="0" Margin="{StaticResource DefaultMargin}" >
+			<StackLayout IsVisible="{Binding IsBusy}">
+				<ActivityIndicator Color="{StaticResource SecondaryBackgroundColor}" HeightRequest="50" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}">
+					
+				</ActivityIndicator>
+			</StackLayout>
+			
+			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}">
+				<ListView ItemsSource="{Binding Items}">
+					
+				</ListView>
+			</StackLayout>
+		</Grid>
     </ContentPage.Content>
 </ContentPage>
