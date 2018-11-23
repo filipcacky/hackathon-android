@@ -35,9 +35,9 @@
 
 										<StackLayout Grid.Column="1" >
 											<StackLayout.Margin >
-												<Thickness Top="2" Bottom="2"></Thickness>
+												<Thickness Top="{StaticResource DefaultMarginValue}" Bottom="{StaticResource DefaultMarginValue}"></Thickness>
 											</StackLayout.Margin>
-											<Label Text="{Binding Name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
+											<Label Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
 											<Label Text="{Binding Description}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  />
 										</StackLayout>
 

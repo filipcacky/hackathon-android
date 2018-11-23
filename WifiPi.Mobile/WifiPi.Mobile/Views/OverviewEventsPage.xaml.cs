@@ -22,15 +22,6 @@ namespace WifiPi.Mobile.Views
 			//TODO PO KLIKNUTÍ NA EVENT ZOBRAZIT DETAIL EVENTU
 		}
 
-		private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-		{
-			await Task.Yield();
-			//todo
-			//if (this.viewModel.Items.Count > 0)
-			//{
-			//	this.DeviceListView.ScrollTo(this.viewModel.Items[0], ScrollToPosition.Start, false);
-			//}
-		}
 
 		protected override async void OnAppearing()
 		{
@@ -40,11 +31,11 @@ namespace WifiPi.Mobile.Views
 
 		private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
 		{
-			if (DeviceListView.SelectedItem != null)
+			if (EventsListView.SelectedItem != null)
 			{
 				var item = (EventItem)e.SelectedItem;
-				DeviceListView.SelectedItem = null;
-				//TODO PŘEJÍT NA INFORMACE O EVENTU
+				EventsListView.SelectedItem = null;
+				this.Navigation.PushAsync(new DetailEventPage(item.Id));
 			}
 		}
 	}
