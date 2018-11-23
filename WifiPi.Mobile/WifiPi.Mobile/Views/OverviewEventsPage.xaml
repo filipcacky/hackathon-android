@@ -3,11 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WifiPi.Mobile.Views.OverviewEventsPage"
 			 Title="Events">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="VŠECHNY EVENTY KTERÉ JSOU V DB ZDE"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="ic_refresh" Text="Aktualizovat" Command="{Binding RefreshCommand}"/>
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">
+			<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">
+				<ActivityIndicator Color="{StaticResource SecondaryBackgroundColor}" HeightRequest="50" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}">
+
+				</ActivityIndicator>
+			</StackLayout>
+
+			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" VerticalOptions="FillAndExpand">
+				<SearchBar Text="{Binding SearchText}" Placeholder="Search" TextChanged="SearchBar_TextChanged"/>
+				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout BackgroundColor="{StaticResource ListViewItemBackground}">
+									<Label Text="{Binding Name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}"  Margin="{StaticResource DefaultMargin}"></Label>
+									<Label Text="{Binding Info}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  Margin="{StaticResource DefaultMargin}"/>
+									<Label HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
 </ContentPage>

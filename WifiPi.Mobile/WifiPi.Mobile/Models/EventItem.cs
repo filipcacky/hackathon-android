@@ -6,7 +6,11 @@ namespace WifiPi.Mobile.Models
 {
 	public class EventItem
 	{
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public TypeEnum Type { get; set; }
+		public string Description { get; set; }
+		public string DeviceGuid { get; set; }
 		public string Date { get; set; }
-		public int Users { get; set; }
 	}
 }
