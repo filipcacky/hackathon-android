@@ -1,4 +1,5 @@
 ﻿using System;
+using WifiPi.Mobile.Backend.Managers;
 using WifiPi.Mobile.Views.Menu;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,6 @@ namespace WifiPi.Mobile
 		public App()
 		{
 			InitializeComponent();
-
 			MainPage = new RootPage();
 		}
 

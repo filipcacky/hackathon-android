@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WifiPi.Mobile.Backend.Managers;
 using WifiPi.Mobile.Models;
 using WifiPi.Mobile.ViewModels;
 using WifiPi.Mobile.Views.Menu;
@@ -39,6 +40,13 @@ namespace WifiPi.Mobile.Views
 			{
 				this.DeviceListView.ScrollTo(this.viewModel.Items[0],ScrollToPosition.Start,false);
 			}
+		}
+
+			protected override async void OnAppearing()
+		{
+			base.OnAppearing();
+			var dataManager = new DataManager();
+			await dataManager.DownloadGeneralInfo();
 		}
 	}
 }

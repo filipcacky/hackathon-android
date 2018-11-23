@@ -6,7 +6,7 @@ namespace WifiPi.Mobile.Backend.WebService
 	public class WebRepository
 	{
 		private HttpClient client;
-		private readonly string Url = "https://8b20e2c2.NGROK.io/";
+		private readonly string Url = "https://8b20e2c2.NGROK.io/api/";
 
 		public static class Paths
 		{
@@ -40,6 +40,12 @@ namespace WifiPi.Mobile.Backend.WebService
 			/// Returns device specific array that contains statistics for this day
 			/// </summary>
 			public static string Today => "today/";
+
+			/// <summary>
+			/// Returns device specific data that contains current amount of ppl
+			/// </summary>
+			public static string Now => "now/";
+
 			#endregion
 		}
 
