@@ -8,7 +8,7 @@
 		public double Longitude { get; set; }
 		public string Website { get; set; }
 		public string Info { get; set; }
-		public TypeEnum PlaceType { get; set; } = TypeEnum.other;
+		public TypeEnum PlaceType { get; set; } = TypeEnum.pub;
 		public int UserCount { get; set; }
 	}
 }

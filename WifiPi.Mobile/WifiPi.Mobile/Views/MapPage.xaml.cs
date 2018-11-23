@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Android.Gms.Maps.Model;
 using WifiPi.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -57,11 +56,6 @@ namespace WifiPi.Mobile.Views
 			await this.vM.LoadFakeData();
 			this.CreatePins();
 
-		}
-
-		private void MenuItem_OnClicked(object sender, EventArgs e)
-		{
-			this.Map.ZoomOnAll();
 		}
 		
 	}

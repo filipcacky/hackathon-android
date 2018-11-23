@@ -4,9 +4,9 @@
 	{
 		pub = 0,
 		restaurant = 1,
-		coffee= 3,
-		gym = 4,
-		library = 5,
-		other = 6
+		coffee= 2,
+		gym = 3,
+		library = 4,
+		shop = 5
 	}
 }

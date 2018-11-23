@@ -17,7 +17,14 @@ namespace WifiPi.Mobile.Views.Menu
 			InitializeComponent();
 			this.MasterBehavior = MasterBehavior.Popover;
 			this.MenuPage.ItemSelected += Menu_ItemSelected;
-			this.GoToPage((Page)Activator.CreateInstance(typeof(HomePage)));
+			this.GoToPage((Page)Activator.CreateInstance(typeof(OverviewPage)));
+		}
+		public RootPage(TypeEnum type)
+		{
+			InitializeComponent();
+			this.MasterBehavior = MasterBehavior.Popover;
+			this.MenuPage.ItemSelected += Menu_ItemSelected;
+			this.GoToPage(new HomePage(type));
 		}
 		public static NavigationPage RootNavigationPage { get; protected set; }
 
@@ -32,7 +39,7 @@ namespace WifiPi.Mobile.Views.Menu
 				}
 				else
 				{
-					this.GoToPage((Page)Activator.CreateInstance(typeof(HomePage), false));
+					this.GoToPage(new HomePage(TypeEnum.shop)); //TODO CO TADY ZA TYPE ? xd
 				}
 			}
 			this.IsPresented = false;
@@ -55,8 +62,16 @@ namespace WifiPi.Mobile.Views.Menu
 			}
 		}
 
-		
 
+		protected override bool OnBackButtonPressed()
+		{
+			if (RootPage.RootNavigationPage.Navigation.NavigationStack.Count == 1)
+			{
+				App.Current.MainPage = new NavigationPage(new OverviewPage());
+				return true;
+			}
+			return base.OnBackButtonPressed();
+		}
 
 	}
 }

@@ -15,9 +15,17 @@ namespace WifiPi.Mobile.ViewModels
 
 		public HomeViewModel()
 		{
-			this.Title = "Přehled";
+			this.Title = "Místa";
 			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
-			this.FilterCommand = new Command(this.FilterCommand_Execute);
+		//	this.FilterCommand = new Command(this.FilterCommand_Execute);
+		}
+
+		public HomeViewModel(TypeEnum type)
+		{
+			this.Title = type.ToString();
+			this.type = type;
+			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
+		//	this.FilterCommand = new Command(this.FilterCommand_Execute);
 		}
 
 		private List<DeviceGeneralInfo> Search()
@@ -41,14 +49,15 @@ namespace WifiPi.Mobile.ViewModels
 			this.IsBusy = false;
 		}
 
-		public Command FilterCommand { get; set; }
-		private async void FilterCommand_Execute()
-		{
-			//todo filter
-		}
+		//public Command FilterCommand { get; set; }
+		//private async void FilterCommand_Execute()
+		//{
+		//
+		//}
 		#endregion
 
 		#region Properties
+		private TypeEnum type;
 		private List<DeviceGeneralInfo> backUpList;
 		private List<DeviceGeneralInfo> items;
 		public List<DeviceGeneralInfo> Items

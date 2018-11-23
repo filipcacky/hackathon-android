@@ -5,7 +5,4 @@
              xmlns:views="clr-namespace:WifiPi.Mobile.Views;assembly=WifiPi.Mobile"
              x:Class="WifiPi.Mobile.Views.MapPage">
 	<views:CustomMap x:Name="Map" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Street"/>
-	<ContentPage.ToolbarItems>
-		<ToolbarItem Clicked="MenuItem_OnClicked" Text="a"/>
-	</ContentPage.ToolbarItems>
 </ContentPage>

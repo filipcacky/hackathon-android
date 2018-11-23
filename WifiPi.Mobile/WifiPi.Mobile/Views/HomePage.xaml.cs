@@ -22,7 +22,12 @@ namespace WifiPi.Mobile.Views
 			InitializeComponent();
 			this.viewModel = new HomeViewModel();
 			this.BindingContext = this.viewModel;
-			this.Title = "Místa";
+		}
+		public HomePage(TypeEnum type)
+		{
+			InitializeComponent();
+			this.viewModel = new HomeViewModel(type);
+			this.BindingContext = this.viewModel;
 		}
 
 		private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -46,6 +51,7 @@ namespace WifiPi.Mobile.Views
 
 		protected override async void OnAppearing()
 		{
+			//TODO PŘEMÍSTIT DO VIEWMODELU NAHRÁNÍ ITEMU + UDĚLAT FILTR PODLE ENUMU (this.type)
 			base.OnAppearing();
 			var dataManager = new DeviceGeneralInfoManager();
 			this.viewModel.BackUpList = new List<DeviceGeneralInfo>(await dataManager.GetAll()); 
