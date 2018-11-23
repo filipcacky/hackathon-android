@@ -30,7 +30,18 @@
 			<Thickness x:Key="DefaultDoubleMargin"
 					   Left="{StaticResource DefaultDoubleMarginValue}" Top="{StaticResource DefaultDoubleMarginValue}" Right="{StaticResource DefaultDoubleMarginValue}"
 					   Bottom="{StaticResource DefaultDoubleMarginValue}" />
-
+			
+			
+			<Style TargetType="Label" x:Key="DefaultLabel">
+				<Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+				
+			</Style>
+			<Style TargetType="Label" x:Key="DefaultInfoLabel">
+				<Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
+				<Setter Property="FontSize" Value="{StaticResource TitleTextSize}" />
+			</Style>
 
 			<!-- MENU -->
 			<Style TargetType="Label" x:Key="MenuIsSelected">

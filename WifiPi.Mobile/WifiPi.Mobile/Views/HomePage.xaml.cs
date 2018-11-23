@@ -16,9 +16,9 @@ namespace WifiPi.Mobile.Views
 	public partial class HomePage : ContentPage
 	{
 		private HomeViewModel viewModel;
-		public HomePage ()
+		public HomePage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 			this.viewModel = new HomeViewModel();
 			this.BindingContext = this.viewModel;
 		}
@@ -36,13 +36,13 @@ namespace WifiPi.Mobile.Views
 		private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			await Task.Yield();
-			if(this.viewModel.Items.Count > 0)
+			if (this.viewModel.Items.Count > 0)
 			{
-				this.DeviceListView.ScrollTo(this.viewModel.Items[0],ScrollToPosition.Start,false);
+				this.DeviceListView.ScrollTo(this.viewModel.Items[0], ScrollToPosition.Start, false);
 			}
 		}
 
-			protected override async void OnAppearing()
+		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
 			var dataManager = new DataManager();

@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Models;
+using Xamarin.Forms;
 
 namespace WifiPi.Mobile.ViewModels
 {
 	public class HomeViewModel : BaseViewModel
 	{
+
 		public HomeViewModel()
 		{
 			this.Title = "Přehled";
@@ -17,10 +19,11 @@ namespace WifiPi.Mobile.ViewModels
 			for (int i = 0; i < 10; i++)
 			{
 				this.backUpList.Add(new DeviceGeneralInfo
-			{
-				Name = $"{i}",
-				Info = $"informace {i}"
-			});
+				{
+					Name = $"{i}",
+					Info = $"informace {i}",
+					Web = $"https://www.{i}.com"
+				});
 			}
 			this.Items = this.backUpList;
 		}
