@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WifiPi.Mobile.Models;
+using WifiPi.Mobile.Views;
 
 namespace WifiPi.Mobile.ViewModels
 {
@@ -46,11 +47,19 @@ namespace WifiPi.Mobile.ViewModels
 			var menuItems = new List<MenuItemModel>();
 			menuItems.Add(new MenuItemModel()
 			{
-				Title = "Přehled",
+				Title = "Místa",
 				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
 				Icon = "\uf6d5",
 				Selected = true,
-				TargetType = null
+				TargetType = typeof(HomePage)
+			});
+			menuItems.Add(new MenuItemModel()
+			{
+					Title = "Mapa míst",
+					FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
+					Icon = "\uf279",
+					Selected = false,
+					TargetType = typeof(MapPage)
 			});
 
 			return menuItems;
