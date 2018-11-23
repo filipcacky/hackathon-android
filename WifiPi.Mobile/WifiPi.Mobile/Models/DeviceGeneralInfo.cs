@@ -10,5 +10,6 @@
 		public string Info { get; set; }
 		public TypeEnum PlaceType { get; set; } = TypeEnum.other;
 		public int UserCount { get; set; }
+		public int Popularity { get; set; }
 	}
 }

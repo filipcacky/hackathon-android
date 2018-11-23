@@ -22,7 +22,8 @@ namespace WifiPi.Mobile.Views
 			InitializeComponent();
 			vM = new MapViewModel();
 			this.BindingContext = this.vM;
-			this.Title = "Mapa míst";
+			this.Title = "Map";
+
 		}
 
 

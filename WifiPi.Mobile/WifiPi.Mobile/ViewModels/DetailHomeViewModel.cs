@@ -26,7 +26,7 @@ namespace WifiPi.Mobile.ViewModels
 			var manager = new DeviceGeneralInfoManager();
 			this.deviceGeneralInfo = await manager.GetDevice(this.deviceGeneralInfo.Guid);
 
-			this.UniqueDevices = $"Přibližný počet lidí: {this.deviceGeneralInfo.UserCount}";
+			this.UniqueDevices = $"Amount of people: {this.deviceGeneralInfo.UserCount}";
 			this.Title = this.deviceGeneralInfo.Name;
 			this.Info = this.deviceGeneralInfo.Info;
 			this.Web = this.deviceGeneralInfo.Website;

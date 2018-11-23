@@ -14,11 +14,8 @@ namespace WifiPi.Mobile.Droid
 		{
 			base.OnCreate(savedInstanceState);
 
-			var manager= new DataManager();
-			await manager.DownloadGeneralInfo();
-
 			var intent = new Intent(this, typeof(MainActivity));
-			StartActivity(intent);
+			this.StartActivity(intent);
 		}
 	}
 }

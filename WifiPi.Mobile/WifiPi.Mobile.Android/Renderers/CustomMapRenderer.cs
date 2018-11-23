@@ -68,6 +68,7 @@ namespace WifiPi.Mobile.Droid.Renderers
 			base.OnMapReady(map);
 			this.AddCustomItems();
 			(this.Element as CustomMap).OnZoomOnAll += (sender, args) => { this.ZoomOnAll(); };
+			this.ZoomOnAll();
 		}
 
 		public async void ZoomOnAll()

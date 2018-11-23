@@ -22,7 +22,7 @@ namespace WifiPi.Mobile.Views
 			InitializeComponent();
 			this.viewModel = new HomeViewModel();
 			this.BindingContext = this.viewModel;
-			this.Title = "Místa";
+			this.Title = "Places";
 		}
 
 		private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

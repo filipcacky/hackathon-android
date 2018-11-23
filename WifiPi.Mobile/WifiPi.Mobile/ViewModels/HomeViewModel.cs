@@ -15,7 +15,7 @@ namespace WifiPi.Mobile.ViewModels
 
 		public HomeViewModel()
 		{
-			this.Title = "Přehled";
+			this.Title = "Places";
 			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
 			this.FilterCommand = new Command(this.FilterCommand_Execute);
 		}

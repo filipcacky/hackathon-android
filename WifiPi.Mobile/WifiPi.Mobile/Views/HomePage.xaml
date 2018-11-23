@@ -6,7 +6,7 @@
 			 Title="{Binding Title}">
 	
 	<ContentPage.ToolbarItems>
-		<ToolbarItem x:Name="FilterToolbarIcon" Icon="ic_filter" Text="Filtrovat" Command="{Binding FilterCommand}"/>
+		<ToolbarItem x:Name="FilterToolbarIcon" Icon="ic_filter" Text="Filter" Command="{Binding FilterCommand}"/>
 		<ToolbarItem Icon="ic_refresh" Text="Aktualizovat" Command="{Binding RefreshCommand}"/>
 	</ContentPage.ToolbarItems>
     <ContentPage.Content>
@@ -18,7 +18,7 @@
 			</StackLayout>
 			
 			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" VerticalOptions="FillAndExpand">
-				<SearchBar Text="{Binding SearchText}" Placeholder="Vyhledat" TextChanged="SearchBar_TextChanged"/>
+				<SearchBar Text="{Binding SearchText}" Placeholder="Search" TextChanged="SearchBar_TextChanged"/>
 				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected">
 					<ListView.ItemTemplate>
 						<DataTemplate>
