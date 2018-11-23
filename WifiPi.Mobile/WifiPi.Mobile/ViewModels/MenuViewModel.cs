@@ -22,7 +22,6 @@ namespace WifiPi.Mobile.ViewModels
 			}
 		}
 
-
 		#region Properties
 		private List<MenuItemModel> menuItems;
 
@@ -41,8 +40,6 @@ namespace WifiPi.Mobile.ViewModels
 		}
 
 		#endregion
-
-
 
 		public static List<MenuItemModel> GetMenuItems()
 		{

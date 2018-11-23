@@ -8,5 +8,6 @@
 		public double Longitude { get; set; }
 		public string Web { get; set; }
 		public string Info { get; set; }
+		public TypeEnum PlaceType { get; set; } = TypeEnum.other;
 	}
 }
