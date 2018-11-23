@@ -16,7 +16,7 @@
 			</StackLayout>
 
 			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}"  BackgroundColor="{StaticResource PrimaryBackgroundColor}"  VerticalOptions="FillAndExpand">
-				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected">
+				<ListView x:Name="EventsListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected">
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell >
