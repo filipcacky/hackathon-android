@@ -1,6 +1,4 @@
-﻿using WifiPi.Mobile.Models.SubModels;
-
-namespace WifiPi.Mobile.Models
+﻿namespace WifiPi.Mobile.Models
 {
 	public class DeviceGeneralInfo
 	{
