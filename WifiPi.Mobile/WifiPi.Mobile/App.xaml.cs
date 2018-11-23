@@ -29,5 +29,14 @@ namespace WifiPi.Mobile
 		{
 			// Handle when your app resumes
 		}
+
+		public static void SafeGoToPage(Page page)
+		{
+			var stack = RootPage.RootNavigationPage.Navigation.NavigationStack;
+			if (page.GetType() != stack[stack.Count - 1].GetType())
+			{
+				RootPage.RootNavigationPage.Navigation.PushAsync(page);
+			}
+		}
 	}
 }
