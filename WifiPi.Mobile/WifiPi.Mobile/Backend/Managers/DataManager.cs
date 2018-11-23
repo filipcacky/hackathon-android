@@ -11,7 +11,7 @@ namespace WifiPi.Mobile.Backend.Managers
 	{
 		public static DeviceGeneralInfo[] AllDevices { get; set; }
 
-		public async Task DownloadGeneralInfo()
+		public async Task<DeviceGeneralInfo[]> DownloadGeneralInfo()
 		{
 			var service = new DataUpdateManager();
 
@@ -19,6 +19,7 @@ namespace WifiPi.Mobile.Backend.Managers
 			string dataAsJson = this.ReadMemoryToString(dataAsByteArray);
 
 			AllDevices = JsonConvert.DeserializeObject<DeviceGeneralInfo[]>(dataAsJson);
+			return AllDevices;
 		}
 
 
