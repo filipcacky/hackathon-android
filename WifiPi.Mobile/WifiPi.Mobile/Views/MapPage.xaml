@@ -2,6 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:views="clr-namespace:WifiPi.Mobile.Views;assembly=WifiPi.Mobile"
              x:Class="WifiPi.Mobile.Views.MapPage">
-	<maps:Map x:Name="Map" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Street"/>
+	<views:CustomMap x:Name="Map" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" MapType="Street"/>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Clicked="MenuItem_OnClicked" Text="a"/>
+	</ContentPage.ToolbarItems>
 </ContentPage>
