@@ -45,8 +45,10 @@ namespace WifiPi.Mobile.Views
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
-			var dataManager = new DataManager();
-			await dataManager.DownloadGeneralInfo();
+			var dataManager = new DeviceGeneralInfoManager();
+			this.viewModel.BackUpList = new List<DeviceGeneralInfo>(await dataManager.GetAll()); 
+
+			this.viewModel.Items = this.viewModel.BackUpList;
 		}
 	}
 }

@@ -15,31 +15,18 @@ namespace WifiPi.Mobile.ViewModels
 		public HomeViewModel()
 		{
 			this.Title = "Přehled";
-			this.backUpList = new List<DeviceGeneralInfo>();
-			for (int i = 0; i < 10; i++)
-			{
-				this.backUpList.Add(new DeviceGeneralInfo
-				{
-					Name = $"{i}",
-					Info = $"informace {i}",
-					Web = $"https://www.{i}.com"
-				});
-			}
-			this.Items = this.backUpList;
 		}
-
 
 		private List<DeviceGeneralInfo> Search()
 		{
 			var output = new List<DeviceGeneralInfo>();
-			if (this.backUpList.Count > 0)
+			if (this.BackUpList.Count > 0)
 			{
-				output = this.backUpList.Where(item => item.Name.IndexOf(this.searchText, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
+				output = this.BackUpList.Where(item => item.Name.IndexOf(this.searchText, StringComparison.CurrentCultureIgnoreCase) >= 0 ||
 				item.Info.IndexOf(this.searchText, StringComparison.CurrentCultureIgnoreCase) >= 0).ToList();
 			}
 			return output;
 		}
-
 
 		#region Commands
 		#endregion
@@ -52,7 +39,6 @@ namespace WifiPi.Mobile.ViewModels
 			get => this.items;
 			set { this.items = value; OnPropertyChanged(); }
 		}
-
 
 		private string searchText;
 
@@ -68,12 +54,17 @@ namespace WifiPi.Mobile.ViewModels
 				}
 				else
 				{
-					this.Items = this.backUpList;
+					this.Items = this.BackUpList;
 				}
 				OnPropertyChanged();
 			}
 		}
 
+		public List<DeviceGeneralInfo> BackUpList
+		{
+			get { return this.backUpList; }
+			set { this.backUpList = value; this.OnPropertyChanged(); }
+		}
 
 		#endregion
 	}

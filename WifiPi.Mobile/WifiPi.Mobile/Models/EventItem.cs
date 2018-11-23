@@ -4,9 +4,7 @@ using System.Text;
 
 namespace WifiPi.Mobile.Models
 {
-	public class StatisticsItem
+	public class EventItem
 	{
-		public string DateTime { get; set; }
-		public int Count { get; set; }
 	}
 }
