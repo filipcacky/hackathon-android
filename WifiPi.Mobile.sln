@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiPi.Mobile.Android", "WifiPi.Mobile\WifiPi.Mobile.Android\WifiPi.Mobile.Android.csproj", "{34E71170-B082-4DC3-86A7-E69BBDEE663D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiPi.Mobile", "WifiPi.Mobile\WifiPi.Mobile\WifiPi.Mobile.csproj", "{A3A6FC95-D148-4359-A6A0-8E829673FD66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34E71170-B082-4DC3-86A7-E69BBDEE663D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E71170-B082-4DC3-86A7-E69BBDEE663D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E71170-B082-4DC3-86A7-E69BBDEE663D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{34E71170-B082-4DC3-86A7-E69BBDEE663D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E71170-B082-4DC3-86A7-E69BBDEE663D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34E71170-B082-4DC3-86A7-E69BBDEE663D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A3A6FC95-D148-4359-A6A0-8E829673FD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A6FC95-D148-4359-A6A0-8E829673FD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A6FC95-D148-4359-A6A0-8E829673FD66}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A3A6FC95-D148-4359-A6A0-8E829673FD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A6FC95-D148-4359-A6A0-8E829673FD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A6FC95-D148-4359-A6A0-8E829673FD66}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A9EC07B-BECE-49DD-9B1F-7667961B34F8}
+	EndGlobalSection
+EndGlobal
