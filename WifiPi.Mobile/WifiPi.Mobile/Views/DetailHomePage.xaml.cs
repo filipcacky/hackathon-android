@@ -12,7 +12,7 @@ using Xamarin.Forms.Xaml;
 namespace WifiPi.Mobile.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class DetailHomePage : ContentPage
+	public partial class DetailHomePage : TabbedPage
 	{
 		private DetailHomeViewModel viewModel;
 		public DetailHomePage(DeviceGeneralInfo deviceGeneralInfo)
@@ -26,6 +26,7 @@ namespace WifiPi.Mobile.Views
 		{
 			base.OnAppearing();
 			await this.viewModel.LoadDeviceInfo();
+			//TODO LOAD EVENTS 
 			this.chartView.HeightRequest = 200;
 			this.chartView.Margin = 0;
 			this.chartView.Chart = new LineChart() { Entries = this.viewModel.Entries, BackgroundColor = SkiaSharp.SKColor.Parse("ffffff"), LabelTextSize = 35 };

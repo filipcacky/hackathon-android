@@ -49,7 +49,7 @@ namespace WifiPi.Mobile.ViewModels
 			{
 				Title = "Places",
 				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
-				Icon = "\uf6d5",
+				Icon = "\uf1ad",
 				Selected = true,
 				TargetType = typeof(HomePage)
 			});
@@ -57,7 +57,7 @@ namespace WifiPi.Mobile.ViewModels
 			{
 				Title = "Map",
 				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
-				Icon = "\uf279",
+				Icon = "\uf59f",
 				Selected = false,
 				TargetType = typeof(MapPage)
 			});

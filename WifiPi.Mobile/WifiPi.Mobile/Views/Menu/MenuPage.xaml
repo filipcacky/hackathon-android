@@ -10,8 +10,10 @@
 			           SeparatorVisibility="None" Margin="0" RowHeight="60">
 
 				<ListView.Header>
-					<BoxView HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryToolbarColor}" HeightRequest="100">
-					</BoxView>
+					<StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryToolbarColor}" HeightRequest="100">
+						<Label VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="WhereToGo"
+							   TextColor="#ffffff" FontSize="25" FontAttributes="Italic"/>
+					</StackLayout>
 				</ListView.Header>
 
 				<ListView.ItemTemplate>

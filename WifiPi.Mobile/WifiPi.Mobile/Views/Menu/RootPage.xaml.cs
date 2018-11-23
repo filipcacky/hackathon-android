@@ -24,7 +24,8 @@ namespace WifiPi.Mobile.Views.Menu
 			InitializeComponent();
 			this.MasterBehavior = MasterBehavior.Popover;
 			this.MenuPage.ItemSelected += Menu_ItemSelected;
-			this.GoToPage(new HomePage(type));
+			HomePage.PlaceType = type;
+			this.GoToPage(new HomePage());
 		}
 		public static NavigationPage RootNavigationPage { get; protected set; }
 
@@ -33,13 +34,15 @@ namespace WifiPi.Mobile.Views.Menu
 		{
 			if (e.SelectedItem is MenuItemModel item)
 			{
-				if (item.TargetType != null)
+				var page = RootPage.RootNavigationPage.Navigation.NavigationStack[RootPage.RootNavigationPage.Navigation.NavigationStack.Count-1];
+				var type = page.GetType();
+				if (item.TargetType != null && type != item.TargetType)
 				{
 					this.GoToPage((Page)Activator.CreateInstance(item.TargetType));
 				}
 				else
 				{
-					this.GoToPage(new HomePage(TypeEnum.shop)); //TODO CO TADY ZA TYPE ? xd
+					this.GoToPage(new HomePage()); //TODO CO TADY ZA TYPE ? xd
 				}
 			}
 			this.IsPresented = false;
@@ -49,6 +52,8 @@ namespace WifiPi.Mobile.Views.Menu
 		{
 			try
 			{
+			
+				var x = RootPage.RootNavigationPage?.Navigation.NavigationStack;
 				RootNavigationPage = new NavigationPage(page)
 				{
 					BarBackgroundColor = (Color)App.Current.Resources["PrimaryToolbarColor"],
