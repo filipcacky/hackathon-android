@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using WifiPi.Mobile.Backend.Managers;
 using WifiPi.Mobile.Models;
 using Xamarin.Forms;
 using Entry = Microcharts.Entry;
@@ -14,10 +15,7 @@ namespace WifiPi.Mobile.ViewModels
 		{
 			this.OpenUrlCommand = new Command(this.OpenUrlCommand_Execute);
 			this.deviceGeneralInfo = deviceGeneralInfo;
-			this.Title = this.deviceGeneralInfo.Name;
-			this.Info = this.deviceGeneralInfo.Info;
-			this.Web = this.deviceGeneralInfo.Web;
-
+			this.Title = deviceGeneralInfo.Name;
 			this.chartColor = SkiaSharp.SKColor.Parse("#fcbe05");
 		}
 
@@ -25,8 +23,15 @@ namespace WifiPi.Mobile.ViewModels
 		public async Task LoadDeviceInfo()
 		{
 			this.IsBusy = true;
-			await Task.Delay(3000); //simulace stahování
-			this.UniqueDevices = $"Přibližný počet lidí: 10";
+			var manager = new DeviceGeneralInfoManager();
+			this.deviceGeneralInfo = await manager.GetDevice(this.deviceGeneralInfo.Guid);
+
+			this.UniqueDevices = $"Přibližný počet lidí: {this.deviceGeneralInfo.UserCount}";
+			this.Title = this.deviceGeneralInfo.Name;
+			this.Info = this.deviceGeneralInfo.Info;
+			this.Web = this.deviceGeneralInfo.Website;
+
+			//todo data pro graf
 			this.Entries = new Entry[]
 			{
 				new Entry(5)
@@ -55,7 +60,7 @@ namespace WifiPi.Mobile.ViewModels
 		public Command OpenUrlCommand { get; set; }
 		private void OpenUrlCommand_Execute()
 		{
-			Xamarin.Forms.Device.OpenUri(new Uri(this.deviceGeneralInfo.Web));
+			Xamarin.Forms.Device.OpenUri(new Uri(this.deviceGeneralInfo.Website));
 		}
 
 		#endregion

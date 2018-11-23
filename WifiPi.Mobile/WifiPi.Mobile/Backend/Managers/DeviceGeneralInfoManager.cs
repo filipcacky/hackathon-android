@@ -17,5 +17,11 @@ namespace WifiPi.Mobile.Backend.Managers
 				return DataManager.AllDevices;
 			}
 		}
+
+		public async Task<DeviceGeneralInfo> GetDevice(string guid)
+		{
+			var manager = new DataManager();
+			return await manager.DownloadSpecificGeneralInfo(guid);
+		}
 	}
 }

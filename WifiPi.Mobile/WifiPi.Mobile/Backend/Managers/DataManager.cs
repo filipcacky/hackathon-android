@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -20,6 +21,18 @@ namespace WifiPi.Mobile.Backend.Managers
 
 			AllDevices = JsonConvert.DeserializeObject<DeviceGeneralInfo[]>(dataAsJson);
 			return AllDevices;
+		}
+
+		public async Task<DeviceGeneralInfo> DownloadSpecificGeneralInfo(string guid)
+		{
+			var service = new DataUpdateManager();
+
+			byte[] dataAsByteArray = await service.GetSpecificGeneralData(guid);
+			string dataAsJson = DataManager.ReadMemoryToString(dataAsByteArray);
+
+			var device = JsonConvert.DeserializeObject<DeviceGeneralInfo>(dataAsJson);
+			
+			return device;
 		}
 
 		public static string ReadMemoryToString(byte[] memory)
