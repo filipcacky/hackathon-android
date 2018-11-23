@@ -23,7 +23,7 @@
 							<ColumnDefinition Width="4*" />
 						</Grid.ColumnDefinitions>
 						<components:IconLabel  Text="{StaticResource Coffee}" Style="{StaticResource OverviewIconLabelStyle}"/>
-						<Label Grid.Column="1" Text="Kavárny" Style="{StaticResource OverviewDefaultLabel}"/>
+						<Label Grid.Column="1" Text="Cafés" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
 				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
@@ -36,7 +36,7 @@
 							<ColumnDefinition Width="4*" />
 						</Grid.ColumnDefinitions>
 						<components:IconLabel  Text="{StaticResource Pub}" Style="{StaticResource OverviewIconLabelStyle}"/>
-						<Label Grid.Column="1" Text="Hospody" Style="{StaticResource OverviewDefaultLabel}"/>
+						<Label Grid.Column="1" Text="Pubs" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
 				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
@@ -49,7 +49,7 @@
 							<ColumnDefinition Width="4*" />
 						</Grid.ColumnDefinitions>
 						<components:IconLabel  Text="{StaticResource Restaurant}" Style="{StaticResource OverviewIconLabelStyle}"/>
-						<Label Grid.Column="1" Text="Restaurace" Style="{StaticResource OverviewDefaultLabel}"/>
+						<Label Grid.Column="1" Text="Restaurants" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
 				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
@@ -62,7 +62,7 @@
 							<ColumnDefinition Width="4*" />
 						</Grid.ColumnDefinitions>
 						<components:IconLabel  Text="{StaticResource Gym}" Style="{StaticResource OverviewIconLabelStyle}"/>
-						<Label Grid.Column="1" Text="Posilovny" Style="{StaticResource OverviewDefaultLabel}"/>
+						<Label Grid.Column="1" Text="Gyms" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
 				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
@@ -75,7 +75,7 @@
 							<ColumnDefinition Width="4*" />
 						</Grid.ColumnDefinitions>
 						<components:IconLabel  Text="{StaticResource Shop}" Style="{StaticResource OverviewIconLabelStyle}"/>
-						<Label Grid.Column="1" Text="Obchody" Style="{StaticResource OverviewDefaultLabel}"/>
+						<Label Grid.Column="1" Text="Shops" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
 				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
@@ -88,7 +88,7 @@
 							<ColumnDefinition Width="4*" />
 						</Grid.ColumnDefinitions>
 						<components:IconLabel  Text="{StaticResource Library}" Style="{StaticResource OverviewIconLabelStyle}"/>
-						<Label Grid.Column="1" Text="Knihovny" Style="{StaticResource OverviewDefaultLabel}"/>
+						<Label Grid.Column="1" Text="Libraries" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
 			</StackLayout>

@@ -7,15 +7,15 @@
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Icon="ic_refresh" Text="Refresh" Command="{Binding RefreshCommand}"/>
 	</ContentPage.ToolbarItems>
-	<ContentPage.Content>
-		<Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">
+	<ContentPage.Content >
+		<Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0" BackgroundColor="{StaticResource PrimaryBackgroundColor}" >
 			<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">
 				<ActivityIndicator Color="{StaticResource SecondaryBackgroundColor}" HeightRequest="50" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}">
 
 				</ActivityIndicator>
 			</StackLayout>
 
-			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" VerticalOptions="FillAndExpand">
+			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}"  BackgroundColor="{StaticResource PrimaryBackgroundColor}"  VerticalOptions="FillAndExpand">
 				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected">
 					<ListView.ItemTemplate>
 						<DataTemplate>
