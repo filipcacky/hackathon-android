@@ -12,13 +12,6 @@ namespace WifiPi.Mobile.Views.Menu
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class RootPage : MasterDetailPage
 	{
-		public RootPage()
-		{
-			InitializeComponent();
-			this.MasterBehavior = MasterBehavior.Popover;
-			this.MenuPage.ItemSelected += Menu_ItemSelected;
-			this.GoToPage((Page)Activator.CreateInstance(typeof(OverviewPage)));
-		}
 		public RootPage(TypeEnum type)
 		{
 			InitializeComponent();
