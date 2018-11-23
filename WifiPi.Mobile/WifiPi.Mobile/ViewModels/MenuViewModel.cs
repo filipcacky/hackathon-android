@@ -55,22 +55,6 @@ namespace WifiPi.Mobile.ViewModels
 				Selected = true,
 				TargetType = null
 			});
-			menuItems.Add(new MenuItemModel()
-			{
-				Title = "Test",
-				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
-				Icon = "\uf6d5",
-				Selected = false,
-				TargetType = null
-			});
-			menuItems.Add(new MenuItemModel()
-			{
-				Title = "Test",
-				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
-				Icon = "\uf6d5",
-				Selected = false,
-				TargetType = null
-			});
 
 			return menuItems;
 		}
