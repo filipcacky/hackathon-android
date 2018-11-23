@@ -33,7 +33,7 @@
 	<ContentPage.Content>
 		<ScrollView Padding="{StaticResource DefaultMargin}" Margin="0" >
 			<StackLayout Spacing="{StaticResource DefaultDoubleMarginValue}">
-				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
 					<Frame.GestureRecognizers>
 						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="2"/>
 					</Frame.GestureRecognizers>
@@ -46,7 +46,7 @@
 						<Label Grid.Column="1" Text="Kavárny" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
-				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
 					<Frame.GestureRecognizers>
 						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="0"/>
 					</Frame.GestureRecognizers>
@@ -59,7 +59,7 @@
 						<Label Grid.Column="1" Text="Hospody" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
-				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
 					<Frame.GestureRecognizers>
 						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="1"/>
 					</Frame.GestureRecognizers>
@@ -72,7 +72,7 @@
 						<Label Grid.Column="1" Text="Restaurace" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
-				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
 					<Frame.GestureRecognizers>
 						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="3"/>
 					</Frame.GestureRecognizers>
@@ -85,7 +85,7 @@
 						<Label Grid.Column="1" Text="Posilovny" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
-				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
 					<Frame.GestureRecognizers>
 						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="5"/>
 					</Frame.GestureRecognizers>
@@ -98,7 +98,7 @@
 						<Label Grid.Column="1" Text="Obchody" Style="{StaticResource OverviewDefaultLabel}"/>
 					</Grid>
 				</Frame>
-				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="True">
+				<Frame BackgroundColor="{StaticResource FramePrimaryColor}" Padding="{StaticResource DefaultMargin}" Margin="0" HasShadow="False">
 					<Frame.GestureRecognizers>
 						<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding PushCommand}" CommandParameter="4"/>
 					</Frame.GestureRecognizers>

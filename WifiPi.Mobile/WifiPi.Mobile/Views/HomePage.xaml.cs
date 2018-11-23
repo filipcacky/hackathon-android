@@ -46,7 +46,6 @@ namespace WifiPi.Mobile.Views
 
 		protected override async void OnAppearing()
 		{
-			//TODO PŘEMÍSTIT DO VIEWMODELU NAHRÁNÍ ITEMU + UDĚLAT FILTR PODLE ENUMU (this.type)
 			base.OnAppearing();
 			
 			await this.viewModel.LoadDevices();

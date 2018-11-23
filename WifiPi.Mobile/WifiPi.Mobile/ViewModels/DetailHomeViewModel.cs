@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Backend.Managers;
@@ -14,6 +15,7 @@ namespace WifiPi.Mobile.ViewModels
 		public DetailHomeViewModel(DeviceGeneralInfo deviceGeneralInfo)
 		{
 			this.OpenUrlCommand = new Command(this.OpenUrlCommand_Execute);
+			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
 			this.deviceGeneralInfo = deviceGeneralInfo;
 			this.Title = deviceGeneralInfo.Name;
 			this.chartColor = SkiaSharp.SKColor.Parse("#fcbe05");
@@ -31,13 +33,17 @@ namespace WifiPi.Mobile.ViewModels
 			this.Info = this.deviceGeneralInfo.Info;
 			this.Web = this.deviceGeneralInfo.Website;
 
+			var eventsManager = new EventManager();
+			var arr = await eventsManager.GetEventsForDevice(this.deviceGeneralInfo.Guid);
+			this.Items = arr.ToList();
+
 			//todo data pro graf
 			this.Entries = new Entry[]
 			{
 				new Entry(5)
 				{
 					Color = this.chartColor,Label= "1"
-					
+
 				},new Entry(15)
 				{
 					Color = this.chartColor,Label= "2"
@@ -63,6 +69,12 @@ namespace WifiPi.Mobile.ViewModels
 			Xamarin.Forms.Device.OpenUri(new Uri(this.deviceGeneralInfo.Website));
 		}
 
+		public Command RefreshCommand { get; set; }
+		private async void RefreshCommand_Execute()
+		{
+			await this.LoadDeviceInfo();
+		}
+
 		#endregion
 
 		#region Properties
@@ -70,6 +82,13 @@ namespace WifiPi.Mobile.ViewModels
 		private readonly SkiaSharp.SKColor chartColor;
 		private DeviceGeneralInfo deviceGeneralInfo;
 
+
+		private List<EventItem> items;
+		public List<EventItem> Items
+		{
+			get => this.items;
+			set { this.items = value; OnPropertyChanged(); }
+		}
 
 		private string info;
 

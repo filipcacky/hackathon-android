@@ -26,10 +26,19 @@ namespace WifiPi.Mobile.Views
 		{
 			base.OnAppearing();
 			await this.viewModel.LoadDeviceInfo();
-			//TODO LOAD EVENTS 
 			this.chartView.HeightRequest = 200;
 			this.chartView.Margin = 0;
 			this.chartView.Chart = new LineChart() { Entries = this.viewModel.Entries, BackgroundColor = SkiaSharp.SKColor.Parse("ffffff"), LabelTextSize = 35 };
+		}
+
+		private void EventsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+		{
+			if (EventsListView.SelectedItem != null)
+			{
+				var item = (EventItem)e.SelectedItem;
+				EventsListView.SelectedItem = null;
+				App.SafeGoToPage(new DetailEventPage(item.Id));
+			}
 		}
 	}
 }
