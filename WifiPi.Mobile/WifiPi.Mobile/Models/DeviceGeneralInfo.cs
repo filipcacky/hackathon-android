@@ -6,7 +6,8 @@ namespace WifiPi.Mobile.Models
 	{
 		public string Guid { get; set; }
 		public string Name { get; set; }
-		public Gps Gps { get; set; }
+		public double Latitude { get; set; }
+		public double Longitude { get; set; }
 		public string Web { get; set; }
 		public string Info { get; set; }
 	}
