@@ -18,6 +18,7 @@
 						<components:IconLabel TextColor="{StaticResource SecondaryTextColor}"  Text="{StaticResource Clock}" Style="{StaticResource OverviewIconLabelStyle}"/>
 						<Label Style="{StaticResource DefaultLabel}" Text="{Binding Date}" />
 					</StackLayout>
+					<Button Text="Go to place" BackgroundColor="{StaticResource PrimaryToolbarColor}" TextColor="{StaticResource PrimaryBackgroundColor}" Command="{Binding GoToDetailCommand}"/>
 				</StackLayout>
 			</StackLayout>
 		</ScrollView>

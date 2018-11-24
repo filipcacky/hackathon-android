@@ -4,6 +4,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Backend.Managers;
 using WifiPi.Mobile.Models;
+using WifiPi.Mobile.Views;
+using WifiPi.Mobile.Views.Menu;
+using Xamarin.Forms;
 
 namespace WifiPi.Mobile.ViewModels
 {
@@ -12,7 +15,9 @@ namespace WifiPi.Mobile.ViewModels
 		public DetailEventViewModel(int id)
 		{
 			this.eventId = id;
+			this.GoToDetailCommand = new Command(this.GoToDetailHomePage);
 		}
+		public Command GoToDetailCommand { get; set; }
 
 
 		public async Task LoadEventData()
@@ -30,6 +35,21 @@ namespace WifiPi.Mobile.ViewModels
 			this.IsBusy = false;
 		}
 
+		private async void GoToDetailHomePage()
+		{
+			var devMan = new DeviceGeneralInfoManager();
+			var deviceGeneralInfo = await devMan.GetDevice(this.eventItem.DeviceGuid);
+
+
+			if (App.Current.MainPage.GetType() == typeof(RootPage))
+			{
+				App.SafeGoToPage(new DetailHomePage(deviceGeneralInfo));
+			}
+			else
+			{
+				await App.Current.MainPage.Navigation.PushAsync(new DetailHomePage(deviceGeneralInfo));
+			}
+		}
 
 		#region Properties
 		private int eventId;
