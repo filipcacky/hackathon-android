@@ -13,7 +13,7 @@
 					</ActivityIndicator>
 				</StackLayout>
 				<StackLayout  IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" >
-					<Label Style="{StaticResource DefaultLabel}" Text="{Binding Description}" />
+					<Label Style="{StaticResource DefaultLabel}" Text="{Binding Information}" />
 					<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
 						<components:IconLabel TextColor="{StaticResource SecondaryTextColor}"  Text="{StaticResource Clock}" Style="{StaticResource OverviewIconLabelStyle}"/>
 						<Label Style="{StaticResource DefaultLabel}" Text="{Binding Date}" />

@@ -23,8 +23,9 @@ namespace WifiPi.Mobile.ViewModels
 			this.eventItem = await manager.GetEvent(this.eventId);
 
 			this.Title = this.eventItem.Name;
-			this.Information = this.eventItem.Description;
+			this.Information = this.eventItem.Info;
 			this.Date = this.eventItem.Date;
+			
 
 			this.IsBusy = false;
 		}

@@ -9,7 +9,7 @@ namespace WifiPi.Mobile.Models
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public TypeEnum PlaceType { get; set; }
-		public string Description { get; set; }
+		public string Info { get; set; }
 		public string DeviceGuid { get; set; }
 		public string Date { get; set; }
 	}

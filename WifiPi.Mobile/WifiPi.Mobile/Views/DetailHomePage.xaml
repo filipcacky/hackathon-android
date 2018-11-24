@@ -36,7 +36,7 @@
 							<components:IconLabel Grid.Column="0" Grid.Row="1"  TextColor="{StaticResource SecondaryTextColor}"  HorizontalTextAlignment="Center"  Text="{StaticResource Clock}" Style="{StaticResource OverviewIconLabelStyle}"/>
 							<Label Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultLabel}" Text="{Binding OpeningHours}" />
 							<components:IconLabel Grid.Column="0" Grid.Row="2"  TextColor="{StaticResource SecondaryTextColor}" HorizontalTextAlignment="Center"  Text="{StaticResource Web}" Style="{StaticResource OverviewIconLabelStyle}"/>
-							<Label  Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultLabel}" Text="{Binding Web}" >
+							<Label  Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultLabel}" Text="{Binding Web}" LineBreakMode="TailTruncation">
 								<Label.GestureRecognizers>
 									<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding OpenUrlCommand}" />
 								</Label.GestureRecognizers>

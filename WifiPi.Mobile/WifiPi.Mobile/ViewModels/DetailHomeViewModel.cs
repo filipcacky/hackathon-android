@@ -42,22 +42,8 @@ namespace WifiPi.Mobile.ViewModels
 			var eventsManager = new EventManager();
 			var arr = await eventsManager.GetEventsForDevice(this.deviceGeneralInfo.Guid);
 			this.Items = arr.ToList();
-
-			var statisticManager = new StatisticsManager();
-			var data = await statisticManager.GetWeeklyStatisticsForDevice(this.deviceGeneralInfo.Guid);
-
+			
 			this.SetFavoriteIcon();
-
-			this.Entries = new Entry[data.Length];
-			for (int i = 0; i < data.Length; i++)
-			{
-				var item = data[i];
-				this.Entries[i] = new Entry(item.Average)
-				{
-					Color = this.chartColor,
-					Label = $"{item.Day.Day}.{item.Day.Month}"
-				};
-			}
 
 
 			this.IsBusy = false;

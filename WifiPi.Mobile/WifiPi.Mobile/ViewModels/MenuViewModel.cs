@@ -74,7 +74,6 @@ namespace WifiPi.Mobile.ViewModels
 				Selected = false,
 				TargetType = typeof(MapPage)
 			});
-
 			return menuItems;
 		}
 	}
