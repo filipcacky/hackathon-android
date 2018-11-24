@@ -8,5 +8,10 @@ namespace WifiPi.Mobile.Models
 	{
 		public DateTime Day { get; set; }
 		public float Average { get; set; }
+
+		public int HourLbl { get; set; }
+		public int MinuteLbl { get; set; }
+
+		public StatisticsItem[] Hours { get; set; }
 	}
 }
