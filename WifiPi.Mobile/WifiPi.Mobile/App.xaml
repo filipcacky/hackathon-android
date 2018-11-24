@@ -41,6 +41,9 @@
 			<x:String x:Key="Gym">&#xf44b;</x:String>
 			<x:String x:Key="Shop">&#xf07a;</x:String>
 			<x:String x:Key="Library">&#xf5da;</x:String>
+			<x:String x:Key="Clock">&#xf017;</x:String>
+			<x:String x:Key="Person">&#xf183;</x:String>
+			<x:String x:Key="Web">&#xf57e;</x:String>
 
 
 			<Style TargetType="components:IconLabel" x:Key="OverviewIconLabelStyle">
@@ -58,9 +61,11 @@
 			</Style>
 
 			<Style TargetType="Label" x:Key="DefaultLabel">
+				<Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
 				<Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
 				<Setter Property="HorizontalOptions" Value="FillAndExpand" />
-
+				<Setter Property="FontSize" Value="{StaticResource TitleTextSize}" />
+				<Setter Property="VerticalTextAlignment" Value="Center" />
 			</Style>
 			<Style TargetType="Label" x:Key="DefaultInfoLabel">
 				<Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />

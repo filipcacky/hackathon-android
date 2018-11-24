@@ -19,19 +19,33 @@
 						</ActivityIndicator>
 					</StackLayout>
 					<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" >
-						<Label Style="{StaticResource DefaultInfoLabel}" Text="Informations" />
+
+
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="6*"/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<components:IconLabel Grid.Column="0" Grid.Row="0" TextColor="{StaticResource SecondaryTextColor}" HorizontalTextAlignment="Center"  Text="{StaticResource Person}" Style="{StaticResource OverviewIconLabelStyle}"/>
+							<Label Grid.Column="1" Grid.Row="0"  Style="{StaticResource DefaultLabel}" Text="{Binding UniqueDevices}" />
+							<components:IconLabel Grid.Column="0" Grid.Row="1"  TextColor="{StaticResource SecondaryTextColor}"  HorizontalTextAlignment="Center"  Text="{StaticResource Clock}" Style="{StaticResource OverviewIconLabelStyle}"/>
+							<Label Grid.Column="1" Grid.Row="1" Style="{StaticResource DefaultLabel}" Text="{Binding OpeningHours}" />
+							<components:IconLabel Grid.Column="0" Grid.Row="2"  TextColor="{StaticResource SecondaryTextColor}" HorizontalTextAlignment="Center"  Text="{StaticResource Web}" Style="{StaticResource OverviewIconLabelStyle}"/>
+							<Label  Grid.Column="1" Grid.Row="2" Style="{StaticResource DefaultLabel}" Text="{Binding Web}" >
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding OpenUrlCommand}" />
+								</Label.GestureRecognizers>
+							</Label>
+						</Grid>
+
 						<Label Style="{StaticResource DefaultLabel}" Text="{Binding Info}"  LineBreakMode="WordWrap"/>
-						
-						<Label Style="{StaticResource DefaultInfoLabel}" Text="{Binding UniqueDevices}" />
 						<microcharts:ChartView x:Name="chartView" />
-						<Label Style="{StaticResource DefaultInfoLabel}" Text="{Binding Web}" >
-							<Label.GestureRecognizers>
-								<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding OpenUrlCommand}" />
-							</Label.GestureRecognizers>
-							<Label.Margin>
-								<Thickness Top="{StaticResource DefaultMarginValue}" />
-							</Label.Margin>
-						</Label>
+
 					</StackLayout>
 				</StackLayout>
 			</ScrollView>
@@ -54,29 +68,33 @@
 						<ListView.ItemTemplate>
 							<DataTemplate>
 								<ViewCell>
-										<Frame  BackgroundColor="{StaticResource FramePrimaryColor}" Padding="0" Margin="0" HasShadow="True">
-									<Grid ColumnSpacing="0" Padding="0">
-										<Grid.ColumnDefinitions>
-											<ColumnDefinition Width="*" />
-											<ColumnDefinition Width="4*" />
-										</Grid.ColumnDefinitions>
-										<Grid.RowDefinitions>
-											<RowDefinition Height="*"/>
-											<RowDefinition Height="Auto"/>
-										</Grid.RowDefinitions>
-										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="&#xf073;" Style="{StaticResource OverviewIconLabelStyle}"/>
+									<Frame  BackgroundColor="{StaticResource FramePrimaryColor}" Padding="0" Margin="0" HasShadow="True">
+										<Grid ColumnSpacing="0" Padding="0">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="*" />
+												<ColumnDefinition Width="4*" />
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition Height="*"/>
+												<RowDefinition Height="Auto"/>
+											</Grid.RowDefinitions>
+											<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="&#xf073;" Style="{StaticResource OverviewIconLabelStyle}"/>
 
-										<StackLayout Grid.Column="1" >
-											<StackLayout.Margin >
-												<Thickness Top="{StaticResource DefaultMarginValue}" Bottom="{StaticResource DefaultMarginValue}"></Thickness>
-											</StackLayout.Margin>
-											<Label Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
-											<Label Text="{Binding Description}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  />
-										</StackLayout>
+											<StackLayout Grid.Column="1" >
 
-										<Label Grid.Row="1" Grid.ColumnSpan="2"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
-									</Grid>
-								</Frame>
+												<StackLayout.Margin >
+													<Thickness Top="{StaticResource DefaultMarginValue}" Bottom="{StaticResource DefaultMarginValue}"></Thickness>
+												</StackLayout.Margin>
+												<Label Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
+												<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+													<components:IconLabel TextColor="{StaticResource SecondaryTextColor}"  Text="{StaticResource Clock}" Style="{StaticResource OverviewIconLabelStyle}"/>
+													<Label Style="{StaticResource DefaultLabel}" Text="{Binding Date}" />
+												</StackLayout>
+											</StackLayout>
+
+											<Label Grid.Row="1" Grid.ColumnSpan="2"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
+										</Grid>
+									</Frame>
 								</ViewCell>
 							</DataTemplate>
 						</ListView.ItemTemplate>

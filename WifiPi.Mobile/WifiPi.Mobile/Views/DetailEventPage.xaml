@@ -1,23 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WifiPi.Mobile.Views.DetailEventPage"
+			 xmlns:components="clr-namespace:WifiPi.Mobile.Views.Components"
+			 x:Class="WifiPi.Mobile.Views.DetailEventPage"
 			 Title="{Binding Title}">
-    <ContentPage.Content>
-       <ScrollView Padding="{StaticResource DefaultMargin}" Margin="0">
+	<ContentPage.Content>
+		<ScrollView Padding="{StaticResource DefaultMargin}" Margin="0">
 			<StackLayout>
-					<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">
-						<ActivityIndicator Color="{StaticResource SecondaryBackgroundColor}" HeightRequest="50" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}">
+				<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">
+					<ActivityIndicator Color="{StaticResource SecondaryBackgroundColor}" HeightRequest="50" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}">
 
-						</ActivityIndicator>
-					</StackLayout>
+					</ActivityIndicator>
+				</StackLayout>
 				<StackLayout  IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" >
-				<Label Style="{StaticResource DefaultInfoLabel}"  Text="Information:" />
-				<Label Style="{StaticResource DefaultLabel}" Text="{Binding Description}" />
-				<Label  Style="{StaticResource DefaultInfoLabel}" Text="Date:" />
-				<Label Style="{StaticResource DefaultLabel}" Text="{Binding Date}" />
+					<Label Style="{StaticResource DefaultLabel}" Text="{Binding Description}" />
+					<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+						<components:IconLabel TextColor="{StaticResource SecondaryTextColor}"  Text="{StaticResource Clock}" Style="{StaticResource OverviewIconLabelStyle}"/>
+						<Label Style="{StaticResource DefaultLabel}" Text="{Binding Date}" />
+					</StackLayout>
+				</StackLayout>
 			</StackLayout>
-		</StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+		</ScrollView>
+	</ContentPage.Content>
 </ContentPage>

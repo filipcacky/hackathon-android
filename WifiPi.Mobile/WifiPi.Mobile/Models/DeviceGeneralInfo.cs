@@ -1,4 +1,6 @@
-﻿namespace WifiPi.Mobile.Models
+﻿using Newtonsoft.Json;
+
+namespace WifiPi.Mobile.Models
 {
 	public class DeviceGeneralInfo
 	{
@@ -9,7 +11,11 @@
 		public string Website { get; set; }
 		public string Info { get; set; }
 		public TypeEnum PlaceType { get; set; } = TypeEnum.pub;
+		[JsonProperty("opening_hours")]
+		public OpeningHours OpeningHours { get; set; }
 		public int UserCount { get; set; }
 		public int Popularity { get; set; }
+
+		public string OpeningHoursFormatted => this.OpeningHours?.From + "-" + this.OpeningHours?.To;
 	}
 }
