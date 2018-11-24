@@ -42,11 +42,63 @@ namespace WifiPi.Mobile.ViewModels
 			var eventsManager = new EventManager();
 			var arr = await eventsManager.GetEventsForDevice(this.deviceGeneralInfo.Guid);
 			this.Items = arr.ToList();
-			
+
+			var statisticManager = new StatisticsManager();
+			var data = await statisticManager.GetWeeklyStatisticsForDevice(this.deviceGeneralInfo.Guid);
+
+			var stats = CreateEntries(data);
+
 			this.SetFavoriteIcon();
+
+			this.Entries = new Entry[stats.Count];
+			for (int i = 0; i < stats.Count; i++)
+			{
+				var item = stats[i];
+				this.Entries[i] = new Entry(item.Average)
+				{
+					Color = this.chartColor,
+					Label = $"{item.HourLbl}"
+				};
+			}
 
 
 			this.IsBusy = false;
+		}
+
+		private List<StatisticsItem> CreateEntries(StatisticsItem[] data)
+		{
+			List<StatisticsItem> entries = new List<StatisticsItem>(){ };
+			for (var i = 0; i < data[0].Hours.Length; i++)
+			{
+				StatisticsItem hourlyEntry = new StatisticsItem();
+				hourlyEntry.HourLbl = i;
+				hourlyEntry.MinuteLbl = 0;
+
+				hourlyEntry.Day = data[0].Hours[i].Day;
+
+				float[] vals = new float[]
+				{
+						data[0].Hours[i].Average,
+						data[1].Hours[i].Average, //i-tá hodina z každedho dne
+						data[2].Hours[i].Average,
+						data[3].Hours[i].Average,
+						data[4].Hours[i].Average,
+						data[5].Hours[i].Average,
+						data[6].Hours[i].Average,
+				};
+
+				float avg = 0;
+
+				foreach (var val in vals)
+				{
+					avg += val;
+				}
+
+				hourlyEntry.Average = avg / vals.Length;
+				entries.Add(hourlyEntry);
+			}
+
+			return entries;
 		}
 
 		private async void SetFavoriteIcon()
