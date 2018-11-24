@@ -26,12 +26,13 @@
 										<Grid.ColumnDefinitions>
 											<ColumnDefinition Width="*" />
 											<ColumnDefinition Width="4*" />
+											<ColumnDefinition Width="*" />
 										</Grid.ColumnDefinitions>
 										<Grid.RowDefinitions>
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="Auto"/>
 										</Grid.RowDefinitions>
-										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{Binding PlaceType,Converter={StaticResource TypeToIconLabelConverter}}" Style="{StaticResource OverviewIconLabelStyle}"/>
+										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="&#xf073;" Style="{StaticResource OverviewIconLabelStyle}"/>
 
 										<StackLayout Grid.Column="1" >
 											<StackLayout.Margin >
@@ -40,11 +41,11 @@
 											<Label Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
 											<Label Text="{Binding Description}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  />
 										</StackLayout>
-
-										<Label Grid.Row="1" Grid.ColumnSpan="2"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
+										<components:IconLabel Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{Binding PlaceType,Converter={StaticResource TypeToIconLabelConverter}}" Style="{StaticResource OverviewIconLabelStyle}"/>
+										<Label Grid.Row="1" Grid.ColumnSpan="3"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
 									</Grid>
 								</Frame>
-								
+
 							</ViewCell>
 						</DataTemplate>
 					</ListView.ItemTemplate>

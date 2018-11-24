@@ -2,7 +2,8 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			  xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
-             x:Class="WifiPi.Mobile.Views.DetailHomePage"
+			xmlns:components="clr-namespace:WifiPi.Mobile.Views.Components"
+			x:Class="WifiPi.Mobile.Views.DetailHomePage"
 			 BackgroundColor="{StaticResource PrimaryBackgroundColor}"
 			 Title="{Binding Title}">
 	<ContentPage x:Name="InfoPage" Title="Information">
@@ -49,11 +50,29 @@
 						<ListView.ItemTemplate>
 							<DataTemplate>
 								<ViewCell>
-									<StackLayout BackgroundColor="{StaticResource ListViewItemBackground}">
-										<Label Text="{Binding Name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}"  Margin="{StaticResource DefaultMargin}"></Label>
-										<Label Text="{Binding Info}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  Margin="{StaticResource DefaultMargin}"/>
-										<Label HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
-									</StackLayout>
+										<Frame  BackgroundColor="{StaticResource FramePrimaryColor}" Padding="0" Margin="0" HasShadow="True">
+									<Grid ColumnSpacing="0" Padding="0">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="4*" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="&#xf073;" Style="{StaticResource OverviewIconLabelStyle}"/>
+
+										<StackLayout Grid.Column="1" >
+											<StackLayout.Margin >
+												<Thickness Top="{StaticResource DefaultMarginValue}" Bottom="{StaticResource DefaultMarginValue}"></Thickness>
+											</StackLayout.Margin>
+											<Label Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
+											<Label Text="{Binding Description}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  />
+										</StackLayout>
+
+										<Label Grid.Row="1" Grid.ColumnSpan="2"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
+									</Grid>
+								</Frame>
 								</ViewCell>
 							</DataTemplate>
 						</ListView.ItemTemplate>

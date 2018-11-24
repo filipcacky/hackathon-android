@@ -1,32 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WifiPi.Mobile.Views.OverviewFavoritesPage"
+			 xmlns:components="clr-namespace:WifiPi.Mobile.Views.Components"
+			 x:Class="WifiPi.Mobile.Views.OverviewFavoritesPage"
 			 Title="Favorites">
-    <ContentPage.Content>
-        <Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">
+	<ContentPage.Content>
+		<Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">
 			<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">
 				<ActivityIndicator Color="{StaticResource SecondaryBackgroundColor}" HeightRequest="50" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}">
-					
+
 				</ActivityIndicator>
 			</StackLayout>
-			
+
 			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" VerticalOptions="FillAndExpand">
 				<SearchBar Text="{Binding SearchText}" Placeholder="Search" TextChanged="SearchBar_TextChanged"/>
 				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="DeviceListView_ItemSelected">
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
-								<StackLayout BackgroundColor="{StaticResource ListViewItemBackground}">
-									<Label Text="{Binding Name}" TextColor="{StaticResource PrimaryTextColor}" FontSize="{StaticResource TitleTextSize}"  Margin="{StaticResource DefaultMargin}"></Label>
-									<Label Text="{Binding Info}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  Margin="{StaticResource DefaultMargin}"/>
-									<Label HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
-								</StackLayout>
+								<Frame  BackgroundColor="{StaticResource FramePrimaryColor}" Padding="0" Margin="0" HasShadow="True">
+									<Grid ColumnSpacing="0" Padding="0">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="4*" />
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*"/>
+											<RowDefinition Height="Auto"/>
+										</Grid.RowDefinitions>
+										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{Binding PlaceType,Converter={StaticResource TypeToIconLabelConverter}}" Style="{StaticResource OverviewIconLabelStyle}"/>
+
+										<StackLayout Grid.Column="1">
+											<StackLayout.Margin >
+												<Thickness Top="{StaticResource DefaultMarginValue}" Bottom="{StaticResource DefaultMarginValue}"></Thickness>
+											</StackLayout.Margin>
+											<Label Text="{Binding Name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
+											<Label Text="{Binding Info}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  />
+										</StackLayout>
+
+										<Label Grid.Row="1" Grid.ColumnSpan="2"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
+									</Grid>
+								</Frame>
 							</ViewCell>
 						</DataTemplate>
 					</ListView.ItemTemplate>
 				</ListView>
 			</StackLayout>
 		</Grid>
-    </ContentPage.Content>
+	</ContentPage.Content>
 </ContentPage>

@@ -16,7 +16,7 @@
 			<Color x:Key="PrimaryDarkToolbarColor">#3853bc</Color>
 			<Color x:Key="PrimaryTextColor">#000000</Color>
 			<Color x:Key="SecondaryTextColor">#4c6ef5</Color>
-			<Color x:Key="ListViewItemBackground">#dee1e5</Color>
+			<Color x:Key="ListViewItemBackground">#e8eaed</Color>
 
 			<x:Double x:Key="IconLabelFontSize">21</x:Double>
 			<x:Double x:Key="SeparatorHeight">1</x:Double>
