@@ -55,5 +55,6 @@ namespace WifiPi.Mobile.Views
 				}
 			}
 		}
+		
 	}
 }
