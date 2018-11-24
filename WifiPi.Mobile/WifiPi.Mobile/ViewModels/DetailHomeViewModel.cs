@@ -8,6 +8,7 @@ using WifiPi.Mobile.Backend.Managers;
 using WifiPi.Mobile.DependencyServices;
 using WifiPi.Mobile.Models;
 using WifiPi.Mobile.Tools;
+using WifiPi.Mobile.Views;
 using WifiPi.Mobile.Views.Menu;
 using Xamarin.Forms;
 using Entry = Microcharts.Entry;
@@ -21,6 +22,7 @@ namespace WifiPi.Mobile.ViewModels
 			this.OpenUrlCommand = new Command(this.OpenUrlCommand_Execute);
 			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
 			this.FavoriteCommand = new Command(this.FavoriteCommand_Execute);
+			this.NavigationCommand = new Command(this.NavigationCommand_Execute);
 			this.deviceGeneralInfo = deviceGeneralInfo;
 			this.Title = deviceGeneralInfo.Name;
 			this.chartColor = SkiaSharp.SKColor.Parse("#fcbe05");
@@ -67,7 +69,7 @@ namespace WifiPi.Mobile.ViewModels
 
 		private List<StatisticsItem> CreateEntries(StatisticsItem[] data)
 		{
-			List<StatisticsItem> entries = new List<StatisticsItem>(){ };
+			List<StatisticsItem> entries = new List<StatisticsItem>() { };
 			for (var i = 0; i < data[0].Hours.Length; i++)
 			{
 				StatisticsItem hourlyEntry = new StatisticsItem();
@@ -124,6 +126,11 @@ namespace WifiPi.Mobile.ViewModels
 			Xamarin.Forms.Device.OpenUri(new Uri(this.deviceGeneralInfo.Website));
 		}
 
+		public Command NavigationCommand { get; set; }
+		private void NavigationCommand_Execute()
+		{
+			(App.Current.MainPage as RootPage).GoToPage(new MapPage(this.deviceGeneralInfo.Latitude,this.deviceGeneralInfo.Longitude));
+		}
 		public Command RefreshCommand { get; set; }
 		private async void RefreshCommand_Execute()
 		{

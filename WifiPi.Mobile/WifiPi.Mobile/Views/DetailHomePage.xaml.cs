@@ -34,9 +34,9 @@ namespace WifiPi.Mobile.Views
 				this.firstLoad = false;
 			}
 
-			//this.chartView.HeightRequest = 200;
-			//this.chartView.Margin = 0;
-			//this.chartView.Chart = new LineChart() { Entries = this.viewModel.Entries, BackgroundColor = SkiaSharp.SKColor.Parse("ffffff"), LabelTextSize = 35 };
+			this.chartView.HeightRequest = 200;
+			this.chartView.Margin = 0;
+			this.chartView.Chart = new LineChart() { Entries = this.viewModel.Entries, BackgroundColor = SkiaSharp.SKColor.Parse("ffffff"), LabelTextSize = 35 };
 		}
 
 		private void EventsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -55,5 +55,6 @@ namespace WifiPi.Mobile.Views
 				}
 			}
 		}
+		
 	}
 }
