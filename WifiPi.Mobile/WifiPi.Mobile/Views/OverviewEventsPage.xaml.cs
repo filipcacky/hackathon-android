@@ -25,7 +25,7 @@ namespace WifiPi.Mobile.Views
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
-			await this.vM.LoadFakeData();
+			await this.vM.LoadData();
 		}
 
 		private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
