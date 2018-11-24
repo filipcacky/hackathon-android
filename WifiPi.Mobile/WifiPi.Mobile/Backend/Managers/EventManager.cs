@@ -36,7 +36,7 @@ namespace WifiPi.Mobile.Backend.Managers
 		public async Task<EventItem[]> GetEventsToday()
 		{
 			var repo = new WebRepository();
-			var path = WebService.WebRepository.Paths.Events;
+			var path = WebService.WebRepository.Paths.EventsToday;
 
 			var data = await repo.GetFileFromUrl(path);
 

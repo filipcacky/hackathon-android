@@ -17,40 +17,13 @@ namespace WifiPi.Mobile.ViewModels
 
 		public async Task LoadData()
 		{
+			this.IsBusy = true;
 			var manager = new EventManager();
 			var events = await manager.GetEventsToday();
 
 			this.Items = new List<EventItem>(events);
+			this.IsBusy = false;
 		}
 
-		public async Task LoadFakeData()
-		{
-			await Task.Delay(100);
-
-			this.Items = new List<EventItem>()
-			{
-				new EventItem()
-				{
-					Date = "21.11.2018",
-					Description = "ahsidfahjksdfhaslhjdfhdalkdfasdfasdf",
-					Name = "Ochutnávky kávy z někud",
-					PlaceType = TypeEnum.coffee
-				},
-				new EventItem()
-				{
-					Date = "21.11.2018",
-					Description = "ahsidfahjksdfhaslhjdfhdalkdfasdfasdf",
-					Name = "Předčítání básniček od někoho",
-					PlaceType = TypeEnum.coffee
-				},
-					new EventItem()
-					{
-					Date = "21.11.2018",
-					Description = "ahsidfahjksdfhaslhjdfhdalkdfasdfasdf",
-					Name = "Knižní klub",
-					PlaceType = TypeEnum.library
-				},
-			};
-		}
 	}
 }
