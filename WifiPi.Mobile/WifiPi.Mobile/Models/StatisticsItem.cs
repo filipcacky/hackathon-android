@@ -6,7 +6,7 @@ namespace WifiPi.Mobile.Models
 {
 	public class StatisticsItem
 	{
-		public string DateTime { get; set; }
-		public int Count { get; set; }
+		public DateTime Day { get; set; }
+		public float Average { get; set; }
 	}
 }

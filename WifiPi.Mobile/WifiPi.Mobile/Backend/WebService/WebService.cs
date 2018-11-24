@@ -31,7 +31,7 @@ namespace WifiPi.Mobile.Backend.WebService
 			/// <summary>
 			/// Returns device specific array that contains statistics for last week
 			/// </summary>
-			public static string Week => "week/";
+			public static string Week => "this-week/";
 			/// <summary>
 			/// Returns device specific array that contains statistics for last month
 			/// </summary>

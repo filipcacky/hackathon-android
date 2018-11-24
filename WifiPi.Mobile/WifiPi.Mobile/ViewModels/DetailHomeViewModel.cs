@@ -32,7 +32,7 @@ namespace WifiPi.Mobile.ViewModels
 			var manager = new DeviceGeneralInfoManager();
 			this.deviceGeneralInfo = await manager.GetDevice(this.deviceGeneralInfo.Guid);
 
-			this.UniqueDevices = $"Amount of people: {this.deviceGeneralInfo.UserCount}";
+			this.UniqueDevices = $"Current amount of people: {this.deviceGeneralInfo.UserCount}";
 			this.Title = this.deviceGeneralInfo.Name;
 			this.Info = this.deviceGeneralInfo.Info;
 			this.Web = this.deviceGeneralInfo.Website;
@@ -41,29 +41,22 @@ namespace WifiPi.Mobile.ViewModels
 			var arr = await eventsManager.GetEventsForDevice(this.deviceGeneralInfo.Guid);
 			this.Items = arr.ToList();
 
+			var statisticManager = new StatisticsManager();
+			var data = await statisticManager.GetWeeklyStatisticsForDevice(this.deviceGeneralInfo.Guid);
+
 			this.SetFavoriteIcon();
 
-			//todo data pro graf
-			this.Entries = new Entry[]
+			this.Entries = new Entry[data.Length];
+			for (int i = 0; i < data.Length; i++)
 			{
-				new Entry(5)
+				var item = data[i];
+				this.Entries[i] = new Entry(item.Average)
 				{
-					Color = this.chartColor,Label= "1"
+					Color = this.chartColor,Label=$"{item.Day.Day}.{item.Day.Month}"
+				};
+			}
 
-				},new Entry(15)
-				{
-					Color = this.chartColor,Label= "2"
-				},new Entry(8)
-				{
-					Color = this.chartColor,Label= "3"
-				},new Entry(12)
-				{
-					Color = this.chartColor,Label= "4"
-				},new Entry(1)
-				{
-					Color = this.chartColor,Label= "5"
-				},
-			};
+			
 			this.IsBusy = false;
 		}
 

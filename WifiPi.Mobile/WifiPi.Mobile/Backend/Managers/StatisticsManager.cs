@@ -21,7 +21,7 @@ namespace WifiPi.Mobile.Backend.Managers
 		public async Task<StatisticsItem[]> GetWeeklyStatisticsForDevice(string guid)
 		{
 			var repo = new WebRepository();
-			var path = WebRepository.Paths.BasePath(guid) + WebRepository.Paths.Today;
+			var path = WebRepository.Paths.BasePath(guid) + WebRepository.Paths.Week;
 
 			var data = await repo.GetFileFromUrl(path);
 			var dataAsJson = DataManager.ReadMemoryToString(data);
