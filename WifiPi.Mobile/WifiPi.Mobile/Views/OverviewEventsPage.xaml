@@ -35,11 +35,15 @@
 										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="&#xf073;" Style="{StaticResource OverviewIconLabelStyle}"/>
 
 										<StackLayout Grid.Column="1" >
+
 											<StackLayout.Margin >
 												<Thickness Top="{StaticResource DefaultMarginValue}" Bottom="{StaticResource DefaultMarginValue}"></Thickness>
 											</StackLayout.Margin>
 											<Label Text="{Binding Name}" LineBreakMode="TailTruncation" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
-											<Label Text="{Binding Description}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  />
+											<StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+												<components:IconLabel TextColor="{StaticResource SecondaryTextColor}"  Text="{StaticResource Clock}" Style="{StaticResource OverviewIconLabelStyle}"/>
+												<Label Style="{StaticResource DefaultLabel}" Text="{Binding Date}" />
+											</StackLayout>
 										</StackLayout>
 										<components:IconLabel Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{Binding PlaceType,Converter={StaticResource TypeToIconLabelConverter}}" Style="{StaticResource OverviewIconLabelStyle}"/>
 										<Label Grid.Row="1" Grid.ColumnSpan="3"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>

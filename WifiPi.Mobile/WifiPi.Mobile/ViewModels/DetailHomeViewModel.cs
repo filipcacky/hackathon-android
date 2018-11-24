@@ -33,10 +33,11 @@ namespace WifiPi.Mobile.ViewModels
 			var manager = new DeviceGeneralInfoManager();
 			this.deviceGeneralInfo = await manager.GetDevice(this.deviceGeneralInfo.Guid);
 
-			this.UniqueDevices = $"Current amount of people: {this.deviceGeneralInfo.UserCount}";
+			this.UniqueDevices = this.deviceGeneralInfo.UserCount.ToString();
 			this.Title = this.deviceGeneralInfo.Name;
 			this.Info = this.deviceGeneralInfo.Info;
 			this.Web = this.deviceGeneralInfo.Website;
+			this.OpeningHours = this.deviceGeneralInfo.OpeningHoursFormatted;
 
 			var eventsManager = new EventManager();
 			var arr = await eventsManager.GetEventsForDevice(this.deviceGeneralInfo.Guid);
@@ -162,6 +163,13 @@ namespace WifiPi.Mobile.ViewModels
 		{
 			get => this.favoriteIcon;
 			set { this.favoriteIcon = value; OnPropertyChanged(); }
+		}
+
+		private string openingHours;
+		public string OpeningHours
+		{
+			get => this.openingHours;
+			set { this.openingHours = value; OnPropertyChanged(); }
 		}
 
 		public Entry[] Entries { get; set; }

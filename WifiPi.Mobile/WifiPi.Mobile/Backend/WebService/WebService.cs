@@ -6,7 +6,7 @@ namespace WifiPi.Mobile.Backend.WebService
 	public class WebRepository
 	{
 		private HttpClient client;
-		private readonly string Url = "https://8b20e2c2.NGROK.io/api/";
+		private readonly string Url = "https://e1cc2153.NGROK.io/api/";
 
 		public static class Paths
 		{

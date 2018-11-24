@@ -35,7 +35,10 @@
 												<Thickness Top="{StaticResource DefaultMarginValue}" Bottom="{StaticResource DefaultMarginValue}"></Thickness>
 											</StackLayout.Margin>
 											<Label Text="{Binding Name}" TextColor="{StaticResource SecondaryTextColor}" FontSize="{StaticResource TitleTextSize}" ></Label>
-											<Label Text="{Binding Info}" TextColor="{StaticResource PrimaryTextColor}" LineBreakMode="TailTruncation"  />
+											<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+												<components:IconLabel TextColor="{StaticResource SecondaryTextColor}" HorizontalTextAlignment="Center"  Text="{StaticResource Person}" Style="{StaticResource OverviewIconLabelStyle}"/>
+												<Label Style="{StaticResource DefaultLabel}" Text="{Binding UserCount}" />
+											</StackLayout>
 										</StackLayout>
 
 										<Label Grid.Row="1" Grid.ColumnSpan="2"  HeightRequest="{StaticResource DefaultDoubleMarginValue}" BackgroundColor="{StaticResource PrimaryBackgroundColor}"></Label>
