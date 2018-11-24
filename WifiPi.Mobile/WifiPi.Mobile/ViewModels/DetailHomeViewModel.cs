@@ -8,6 +8,7 @@ using WifiPi.Mobile.Backend.Managers;
 using WifiPi.Mobile.DependencyServices;
 using WifiPi.Mobile.Models;
 using WifiPi.Mobile.Tools;
+using WifiPi.Mobile.Views.Menu;
 using Xamarin.Forms;
 using Entry = Microcharts.Entry;
 
@@ -52,11 +53,12 @@ namespace WifiPi.Mobile.ViewModels
 				var item = data[i];
 				this.Entries[i] = new Entry(item.Average)
 				{
-					Color = this.chartColor,Label=$"{item.Day.Day}.{item.Day.Month}"
+					Color = this.chartColor,
+					Label = $"{item.Day.Day}.{item.Day.Month}"
 				};
 			}
 
-			
+
 			this.IsBusy = false;
 		}
 

@@ -51,6 +51,8 @@ namespace WifiPi.Mobile.Backend.WebService
 			/// </summary>
 			public static string Events => "events/";
 
+			public static string Event => "event/";
+
 			#endregion
 		}
 

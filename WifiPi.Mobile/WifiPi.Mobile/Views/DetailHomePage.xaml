@@ -21,13 +21,17 @@
 					<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" >
 						<Label Style="{StaticResource DefaultInfoLabel}" Text="Informations" />
 						<Label Style="{StaticResource DefaultLabel}" Text="{Binding Info}"  LineBreakMode="WordWrap"/>
-						<Label Style="{StaticResource DefaultLabel}" Text="{Binding Web}" >
+						
+						<Label Style="{StaticResource DefaultInfoLabel}" Text="{Binding UniqueDevices}" />
+						<microcharts:ChartView x:Name="chartView" />
+						<Label Style="{StaticResource DefaultInfoLabel}" Text="{Binding Web}" >
 							<Label.GestureRecognizers>
 								<TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding OpenUrlCommand}" />
 							</Label.GestureRecognizers>
+							<Label.Margin>
+								<Thickness Top="{StaticResource DefaultMarginValue}" />
+							</Label.Margin>
 						</Label>
-						<Label Style="{StaticResource DefaultInfoLabel}" Text="{Binding UniqueDevices}" />
-						<microcharts:ChartView x:Name="chartView" />
 					</StackLayout>
 				</StackLayout>
 			</ScrollView>

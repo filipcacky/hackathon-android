@@ -2466,26 +2466,26 @@ namespace WifiPi.Mobile.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02014b
-			public const int avd_hide_password_1 = 2130837835;
-			
 			// aapt resource value: 0x7f02014c
-			public const int avd_hide_password_2 = 2130837836;
+			public const int avd_hide_password_1 = 2130837836;
 			
 			// aapt resource value: 0x7f02014d
-			public const int avd_hide_password_3 = 2130837837;
+			public const int avd_hide_password_2 = 2130837837;
+			
+			// aapt resource value: 0x7f02014e
+			public const int avd_hide_password_3 = 2130837838;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02014e
-			public const int avd_show_password_1 = 2130837838;
-			
 			// aapt resource value: 0x7f02014f
-			public const int avd_show_password_2 = 2130837839;
+			public const int avd_show_password_1 = 2130837839;
 			
 			// aapt resource value: 0x7f020150
-			public const int avd_show_password_3 = 2130837840;
+			public const int avd_show_password_2 = 2130837840;
+			
+			// aapt resource value: 0x7f020151
+			public const int avd_show_password_3 = 2130837841;
 			
 			// aapt resource value: 0x7f020055
 			public const int common_full_open_on_phone = 2130837589;
@@ -3204,11 +3204,11 @@ namespace WifiPi.Mobile.Droid
 			// aapt resource value: 0x7f020143
 			public const int notification_icon_background = 2130837827;
 			
-			// aapt resource value: 0x7f020149
-			public const int notification_template_icon_bg = 2130837833;
-			
 			// aapt resource value: 0x7f02014a
-			public const int notification_template_icon_low_bg = 2130837834;
+			public const int notification_template_icon_bg = 2130837834;
+			
+			// aapt resource value: 0x7f02014b
+			public const int notification_template_icon_low_bg = 2130837835;
 			
 			// aapt resource value: 0x7f020144
 			public const int notification_tile_bg = 2130837828;
@@ -3220,10 +3220,13 @@ namespace WifiPi.Mobile.Droid
 			public const int splashscreen = 2130837830;
 			
 			// aapt resource value: 0x7f020147
-			public const int tooltip_frame_dark = 2130837831;
+			public const int splashScreenImg = 2130837831;
 			
 			// aapt resource value: 0x7f020148
-			public const int tooltip_frame_light = 2130837832;
+			public const int tooltip_frame_dark = 2130837832;
+			
+			// aapt resource value: 0x7f020149
+			public const int tooltip_frame_light = 2130837833;
 			
 			static Drawable()
 			{

@@ -22,6 +22,17 @@ namespace WifiPi.Mobile.Backend.Managers
 
 		}
 
+		public async Task<EventItem> GetEvent(int id)
+		{
+			var repo = new WebRepository();
+			var path = WebRepository.Paths.Event + id;
+
+			var data = await repo.GetFileFromUrl(path);
+			var dataAsJson = DataManager.ReadMemoryToString(data);
+
+			return JsonConvert.DeserializeObject<EventItem>(dataAsJson);
+		}
+
 		public async Task<EventItem[]> GetEventsToday()
 		{
 			var repo = new WebRepository();

@@ -45,7 +45,7 @@ namespace WifiPi.Mobile.Views
 			{
 				var item = (EventItem)e.SelectedItem;
 				EventsListView.SelectedItem = null;
-				if (RootPage.RootNavigationPage != null)
+				if (App.Current.MainPage.GetType() == typeof(RootPage))
 				{
 					App.SafeGoToPage(new DetailEventPage(item.Id));
 				}

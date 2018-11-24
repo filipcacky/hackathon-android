@@ -7,7 +7,7 @@ using WifiPi.Mobile.Backend.Managers;
 
 namespace WifiPi.Mobile.Droid
 {
-	[Activity(Label = "WifiPi.Mobile", Icon = "@mipmap/icon", Theme = "@style/SplashscreenTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,NoHistory = true)]
+	[Activity(Label = "WhereToGo", Icon = "@mipmap/icon", Theme = "@style/SplashscreenTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,NoHistory = true)]
 	public class SplashscreenActivity : Activity
 	{ 
 		protected override async void OnCreate(Bundle savedInstanceState)
