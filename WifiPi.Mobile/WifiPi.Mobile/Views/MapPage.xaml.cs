@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using WifiPi.Mobile.DependencyServices;
+using WifiPi.Mobile.Models;
 
 namespace WifiPi.Mobile.Views
 {
@@ -19,7 +20,7 @@ namespace WifiPi.Mobile.Views
 		public MapPage()
 		{
 			InitializeComponent();
-			vM = new MapViewModel();
+			vM = new MapViewModel(HomePage.PlaceType);
 			this.BindingContext = this.vM;
 			this.Title = "Map";
 
@@ -39,8 +40,10 @@ namespace WifiPi.Mobile.Views
 				{
 						Label = dev.Name,
 						Position = new Position(dev.Latitude, dev.Longitude),
-						PinColor =  Color.Blue
+						PinColor =  Color.Blue,
+						BindingContext = dev
 				};
+				pin.Clicked += Pin_Clicked;
 				pins.Add(pin);
 			}
 
@@ -51,10 +54,16 @@ namespace WifiPi.Mobile.Views
 			
 		}
 
+		private void Pin_Clicked(object sender, EventArgs e)
+		{
+			var context = (sender as CustomPin)?.BindingContext as DeviceGeneralInfo;
+			App.SafeGoToPage(new DetailHomePage(context));
+		}
+
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
-			await this.vM.LoadFakeData();
+			await this.vM.LoadData();
 			this.CreatePins();
 
 		}

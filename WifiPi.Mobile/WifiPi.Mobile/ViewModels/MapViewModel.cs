@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Annotations;
@@ -22,11 +23,16 @@ namespace WifiPi.Mobile.ViewModels
 			}
 		}
 
+		private TypeEnum type;
+		public MapViewModel(TypeEnum type)
+		{
+			this.type = type;
+		}
 
 		public async Task LoadData()
 		{
 			var manager = new DeviceGeneralInfoManager();
-			this.Devices = new List<DeviceGeneralInfo>(await manager.GetAll());
+			this.Devices = new List<DeviceGeneralInfo>(await manager.GetAll()).Where(d => d.PlaceType == this.type).ToList();
 		}
 
 		public async Task LoadFakeData()

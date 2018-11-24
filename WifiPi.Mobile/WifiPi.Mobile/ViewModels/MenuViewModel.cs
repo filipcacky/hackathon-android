@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WifiPi.Mobile.Converters;
 using WifiPi.Mobile.Models;
 using WifiPi.Mobile.Views;
 
@@ -11,7 +12,7 @@ namespace WifiPi.Mobile.ViewModels
 
 		public MenuViewModel()
 		{
-			this.MenuItems = MenuViewModel.GetMenuItems();
+			this.MenuItems = this.GetMenuItems();
 		}
 
 		private void MarkItemAsSelected(MenuItemModel newSelectedItem)
@@ -21,6 +22,16 @@ namespace WifiPi.Mobile.ViewModels
 			{
 				item.Selected = item == selectedItem;
 			}
+		}
+
+		public void SetIconForMainItem(TypeEnum type)
+		{
+
+			var nameConv = new TypeToNameConverter();
+			var iconConv = new TypeToIconLabelConverter();
+			this.MenuItems[0].Icon = iconConv.Convert(HomePage.PlaceType, null, null, null).ToString();
+			this.MenuItems[0].Title = nameConv.Convert(HomePage.PlaceType, null, null, null).ToString();
+
 		}
 
 		#region Properties
@@ -42,14 +53,16 @@ namespace WifiPi.Mobile.ViewModels
 
 		#endregion
 
-		public static List<MenuItemModel> GetMenuItems()
+		public  List<MenuItemModel> GetMenuItems()
 		{
 			var menuItems = new List<MenuItemModel>();
+			var nameConv = new TypeToNameConverter();
+			var iconConv = new TypeToIconLabelConverter();
 			menuItems.Add(new MenuItemModel()
 			{
-				Title = "Places",
+				Title = nameConv.Convert(HomePage.PlaceType,null,null,null).ToString(),
 				FontFamily = App.Current.Resources["FontAwesomeSolid"].ToString(),
-				Icon = "\uf1ad",
+				Icon = iconConv.Convert(HomePage.PlaceType,null,null,null).ToString(),
 				Selected = true,
 				TargetType = typeof(HomePage)
 			});

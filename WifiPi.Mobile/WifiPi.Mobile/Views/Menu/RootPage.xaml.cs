@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Models;
+using WifiPi.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,6 +19,7 @@ namespace WifiPi.Mobile.Views.Menu
 			this.MasterBehavior = MasterBehavior.Popover;
 			this.MenuPage.ItemSelected += Menu_ItemSelected;
 			HomePage.PlaceType = type;
+			(this.MenuPage.BindingContext as MenuViewModel).SetIconForMainItem(type);
 			this.GoToPage(new HomePage());
 		}
 		public static NavigationPage RootNavigationPage { get; protected set; }
