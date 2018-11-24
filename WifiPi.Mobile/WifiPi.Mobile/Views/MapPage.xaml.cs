@@ -27,14 +27,6 @@ namespace WifiPi.Mobile.Views
 
 		}
 		
-		public MapPage(double latitude,double longitude)
-		{
-			InitializeComponent();
-			vM = new MapViewModel(HomePage.PlaceType);
-			this.BindingContext = this.vM;
-			this.Title = "Map";
-		}
-
 		public void CreatePins()
 		{
 			this.Map.CustomPins = new List<CustomPin>();

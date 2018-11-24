@@ -129,7 +129,7 @@ namespace WifiPi.Mobile.ViewModels
 		public Command NavigationCommand { get; set; }
 		private void NavigationCommand_Execute()
 		{
-			(App.Current.MainPage as RootPage).GoToPage(new MapPage(this.deviceGeneralInfo.Latitude,this.deviceGeneralInfo.Longitude));
+			DependencyService.Get<IMapHelper>().StartNavigation(this.deviceGeneralInfo.Latitude,this.deviceGeneralInfo.Longitude);
 		}
 		public Command RefreshCommand { get; set; }
 		private async void RefreshCommand_Execute()
