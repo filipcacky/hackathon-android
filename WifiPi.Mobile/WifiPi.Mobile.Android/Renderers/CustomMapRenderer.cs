@@ -68,6 +68,7 @@ namespace WifiPi.Mobile.Droid.Renderers
 			base.OnMapReady(map);
 			this.AddCustomItems();
 			(this.Element as CustomMap).OnZoomOnAll += (sender, args) => { this.ZoomOnAll(); };
+			NativeMap.InfoWindowClick += OnMapMarkerClick;
 			this.ZoomOnAll();
 		}
 
@@ -149,6 +150,23 @@ namespace WifiPi.Mobile.Droid.Renderers
 				this.SetMarkerColor(marker, pin.PinColor.Value);
 			}
 			return marker;
+		}
+		private void OnMapMarkerClick(object sender, GoogleMap.InfoWindowClickEventArgs e)
+		{
+			var marker = e.Marker;
+			CustomPin targetPin = null;
+			for (var i = 0; i < (Element as WifiPi.Mobile.Views.CustomMap).CustomPins.Count; i++)
+			{
+				CustomPin pin = (Element as WifiPi.Mobile.Views.CustomMap).CustomPins[i];
+				if (!string.Equals(pin.Id, marker.Id))
+				{
+					continue;
+				}
+
+				targetPin = pin;
+				break;
+			}
+			targetPin?.OnTap();
 		}
 	}
 }

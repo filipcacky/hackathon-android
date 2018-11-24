@@ -23,5 +23,17 @@ namespace WifiPi.Mobile.Views
 	public class CustomPin : Pin
 	{
 		public Color? PinColor { get; set; }
+
+		public event EventHandler Clicked;
+
+		public bool OnTap()
+		{
+			EventHandler handler = Clicked;
+			if (handler == null)
+				return false;
+
+			handler(this, EventArgs.Empty);
+			return true;
+		}
 	}
 }

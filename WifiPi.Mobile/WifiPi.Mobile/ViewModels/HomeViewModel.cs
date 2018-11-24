@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Backend.Managers;
+using WifiPi.Mobile.Converters;
 using WifiPi.Mobile.Models;
 using Xamarin.Forms;
 
@@ -15,7 +16,8 @@ namespace WifiPi.Mobile.ViewModels
 
 		public HomeViewModel(TypeEnum type)
 		{
-			this.Title = type.ToString() + " - WhereToGo";
+			var conv = new TypeToNameConverter();
+			this.Title = (string)conv.Convert(type,null,null,null);
 			this.type = type;
 			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
 			//	this.FilterCommand = new Command(this.FilterCommand_Execute);
