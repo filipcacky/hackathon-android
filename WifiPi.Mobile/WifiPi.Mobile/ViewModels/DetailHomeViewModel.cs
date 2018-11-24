@@ -79,7 +79,7 @@ namespace WifiPi.Mobile.ViewModels
 				deviceListGuid = JsonConvert.DeserializeObject<List<string>>(jsonSettings);
 			}
 			this.isFavorite = deviceListGuid.Contains(this.deviceGeneralInfo.Guid);
-			this.FavoriteIcon = this.isFavorite ? "ic_favorite_no" : "ic_favorite";
+			this.FavoriteIcon = this.isFavorite ? "ic_favorite" : "ic_favorite_no";
 		}
 
 
@@ -103,6 +103,15 @@ namespace WifiPi.Mobile.ViewModels
 			{
 
 				var jsonSettings = Settings.GetVariable(Settings.FavoritesDevices);
+				var deviceListGuid = JsonConvert.DeserializeObject<List<string>>(jsonSettings);
+				deviceListGuid.Remove(this.deviceGeneralInfo.Guid);
+				Settings.SetVariable(Settings.FavoritesDevices, JsonConvert.SerializeObject(deviceListGuid));
+				DependencyService.Get<INotifications>().ShowAlert($"{this.deviceGeneralInfo.Name} removed from favorites");
+			}
+			else
+			{
+
+				var jsonSettings = Settings.GetVariable(Settings.FavoritesDevices);
 				var deviceListGuid = new List<string>();
 				if (jsonSettings != string.Empty)
 				{
@@ -112,16 +121,8 @@ namespace WifiPi.Mobile.ViewModels
 				Settings.SetVariable(Settings.FavoritesDevices, JsonConvert.SerializeObject(deviceListGuid));
 				DependencyService.Get<INotifications>().ShowAlert($"{this.deviceGeneralInfo.Name} added to favorites");
 			}
-			else
-			{
-				var jsonSettings = Settings.GetVariable(Settings.FavoritesDevices);
-				var deviceListGuid = JsonConvert.DeserializeObject<List<string>>(jsonSettings);
-				deviceListGuid.Remove(this.deviceGeneralInfo.Guid);
-				Settings.SetVariable(Settings.FavoritesDevices, JsonConvert.SerializeObject(deviceListGuid));
-				DependencyService.Get<INotifications>().ShowAlert($"{this.deviceGeneralInfo.Name} removed from favorites");
-			}
 			this.isFavorite = !this.isFavorite;
-			this.FavoriteIcon = this.isFavorite ? "ic_favorite_no" : "ic_favorite";
+			this.FavoriteIcon = this.isFavorite ? "ic_favorite" : "ic_favorite_no";
 		}
 
 		#endregion
