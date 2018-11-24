@@ -6,4 +6,6 @@
 			 Title="WhereToGo">
 	<views:OverviewPlacesPage />
 	<views:OverviewEventsPage />
+	<views:OverviewFavoritesPage />
+
 </TabbedPage>

@@ -6,6 +6,9 @@
 			 BackgroundColor="{StaticResource PrimaryBackgroundColor}"
 			 Title="{Binding Title}">
 	<ContentPage x:Name="InfoPage" Title="Information">
+		<ContentPage.ToolbarItems>
+			<ToolbarItem Icon="{Binding FavoriteIcon}" Command="{Binding FavoriteCommand}"/>
+		</ContentPage.ToolbarItems>
 		<ContentPage.Content>
 			<ScrollView Padding="{StaticResource DefaultMargin}" Margin="0">
 				<StackLayout>

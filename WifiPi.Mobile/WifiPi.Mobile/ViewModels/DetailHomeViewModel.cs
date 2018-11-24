@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WifiPi.Mobile.Backend.Managers;
+using WifiPi.Mobile.DependencyServices;
 using WifiPi.Mobile.Models;
+using WifiPi.Mobile.Tools;
 using Xamarin.Forms;
 using Entry = Microcharts.Entry;
 
@@ -16,6 +19,7 @@ namespace WifiPi.Mobile.ViewModels
 		{
 			this.OpenUrlCommand = new Command(this.OpenUrlCommand_Execute);
 			this.RefreshCommand = new Command(this.RefreshCommand_Execute);
+			this.FavoriteCommand = new Command(this.FavoriteCommand_Execute);
 			this.deviceGeneralInfo = deviceGeneralInfo;
 			this.Title = deviceGeneralInfo.Name;
 			this.chartColor = SkiaSharp.SKColor.Parse("#fcbe05");
@@ -36,6 +40,8 @@ namespace WifiPi.Mobile.ViewModels
 			var eventsManager = new EventManager();
 			var arr = await eventsManager.GetEventsForDevice(this.deviceGeneralInfo.Guid);
 			this.Items = arr.ToList();
+
+			this.SetFavoriteIcon();
 
 			//todo data pro graf
 			this.Entries = new Entry[]
@@ -61,6 +67,21 @@ namespace WifiPi.Mobile.ViewModels
 			this.IsBusy = false;
 		}
 
+		private async void SetFavoriteIcon()
+		{
+			var dataManager = new DeviceGeneralInfoManager();
+			var list = new List<DeviceGeneralInfo>(await dataManager.GetAll());
+
+			var jsonSettings = Settings.GetVariable(Settings.FavoritesDevices);
+			var deviceListGuid = new List<string>();
+			if (jsonSettings != string.Empty)
+			{
+				deviceListGuid = JsonConvert.DeserializeObject<List<string>>(jsonSettings);
+			}
+			this.isFavorite = deviceListGuid.Contains(this.deviceGeneralInfo.Guid);
+			this.FavoriteIcon = this.isFavorite ? "ic_favorite_no" : "ic_favorite";
+		}
+
 
 		#region Commands
 		public Command OpenUrlCommand { get; set; }
@@ -75,10 +96,38 @@ namespace WifiPi.Mobile.ViewModels
 			await this.LoadDeviceInfo();
 		}
 
+		public Command FavoriteCommand { get; set; }
+		private async void FavoriteCommand_Execute()
+		{
+			if (isFavorite)
+			{
+
+				var jsonSettings = Settings.GetVariable(Settings.FavoritesDevices);
+				var deviceListGuid = new List<string>();
+				if (jsonSettings != string.Empty)
+				{
+					deviceListGuid = JsonConvert.DeserializeObject<List<string>>(jsonSettings);
+				}
+				deviceListGuid.Add(this.deviceGeneralInfo.Guid);
+				Settings.SetVariable(Settings.FavoritesDevices, JsonConvert.SerializeObject(deviceListGuid));
+				DependencyService.Get<INotifications>().ShowAlert($"{this.deviceGeneralInfo.Name} added to favorites");
+			}
+			else
+			{
+				var jsonSettings = Settings.GetVariable(Settings.FavoritesDevices);
+				var deviceListGuid = JsonConvert.DeserializeObject<List<string>>(jsonSettings);
+				deviceListGuid.Remove(this.deviceGeneralInfo.Guid);
+				Settings.SetVariable(Settings.FavoritesDevices, JsonConvert.SerializeObject(deviceListGuid));
+				DependencyService.Get<INotifications>().ShowAlert($"{this.deviceGeneralInfo.Name} removed from favorites");
+			}
+			this.isFavorite = !this.isFavorite;
+			this.FavoriteIcon = this.isFavorite ? "ic_favorite_no" : "ic_favorite";
+		}
+
 		#endregion
 
 		#region Properties
-
+		private bool isFavorite;
 		private readonly SkiaSharp.SKColor chartColor;
 		private DeviceGeneralInfo deviceGeneralInfo;
 
@@ -110,6 +159,13 @@ namespace WifiPi.Mobile.ViewModels
 		{
 			get => this.uniqueDevices;
 			set { this.uniqueDevices = value; OnPropertyChanged(); }
+		}
+
+		private string favoriteIcon;
+		public string FavoriteIcon
+		{
+			get => this.favoriteIcon;
+			set { this.favoriteIcon = value; OnPropertyChanged(); }
 		}
 
 		public Entry[] Entries { get; set; }

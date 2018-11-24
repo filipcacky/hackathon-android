@@ -1,13 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WifiPi.Mobile.Views.HomePage"
-			 BackgroundColor="{StaticResource PrimaryBackgroundColor}"
-			 Title="{Binding Title}">
-	
-	<ContentPage.ToolbarItems>
-		<ToolbarItem Icon="ic_refresh" Text="Refresh" Command="{Binding RefreshCommand}"/>
-	</ContentPage.ToolbarItems>
+             x:Class="WifiPi.Mobile.Views.OverviewFavoritesPage"
+			 Title="Favorites">
     <ContentPage.Content>
         <Grid Padding="{StaticResource DefaultMargin}" VerticalOptions="FillAndExpand" Margin="0">
 			<StackLayout IsVisible="{Binding IsBusy}" VerticalOptions="FillAndExpand">
@@ -18,7 +13,7 @@
 			
 			<StackLayout IsVisible="{Binding IsBusy,Converter={StaticResource ActivityConverter}}" VerticalOptions="FillAndExpand">
 				<SearchBar Text="{Binding SearchText}" Placeholder="Search" TextChanged="SearchBar_TextChanged"/>
-				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected">
+				<ListView x:Name="DeviceListView" ItemsSource="{Binding Items}" SeparatorColor="{StaticResource PrimaryBackgroundColor}" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="DeviceListView_ItemSelected">
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>

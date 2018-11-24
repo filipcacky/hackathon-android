@@ -31,7 +31,7 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="Auto"/>
 										</Grid.RowDefinitions>
-										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{StaticResource Pub}" Style="{StaticResource OverviewIconLabelStyle}"/>
+										<components:IconLabel HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{Binding PlaceType,Converter={StaticResource TypeToIconLabelConverter}}" Style="{StaticResource OverviewIconLabelStyle}"/>
 
 										<StackLayout Grid.Column="1" >
 											<StackLayout.Margin >

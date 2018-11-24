@@ -19,7 +19,6 @@ namespace WifiPi.Mobile.Views
 			InitializeComponent();
 			this.vM = new OverviewEventsViewModel();
 			this.BindingContext = this.vM;
-			//TODO PO KLIKNUTÍ NA EVENT ZOBRAZIT DETAIL EVENTU
 		}
 
 

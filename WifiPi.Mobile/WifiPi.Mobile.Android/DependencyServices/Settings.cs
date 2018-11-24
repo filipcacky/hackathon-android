@@ -12,9 +12,8 @@ using Android.Views;
 using Android.Widget;
 using WifiPi.Mobile.DependencyServices;
 using Xamarin.Forms;
-using static Android.Media.Audiofx.BassBoost;
 
-[assembly: Dependency(typeof(Settings))]
+[assembly: Dependency(typeof(WifiPi.Mobile.Droid.DependencyServices.Settings))]
 namespace WifiPi.Mobile.Droid.DependencyServices
 {
 	public class Settings : ISettings

@@ -8,6 +8,10 @@ namespace WifiPi.Mobile.Tools
 {
 	public static class Settings
 	{
+		#region Consts
+
+		public const string FavoritesDevices = "WhereToGo.Settings.FavoritesDevices";
+		#endregion
 		public static string GetVariable(string key)
 		{
 			return DependencyService.Get<ISettings>().GetVariable(key);
