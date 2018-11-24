@@ -10,9 +10,8 @@
 			           SeparatorVisibility="None" Margin="0" RowHeight="60">
 
 				<ListView.Header>
-					<StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource PrimaryToolbarColor}" HeightRequest="100">
-						<Label VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="WhereToGo"
-							   TextColor="#ffffff" FontSize="25" FontAttributes="Italic"/>
+					<StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" HeightRequest="100">
+						<Image Source="splashScreenImg" HeightRequest="100" WidthRequest="100"/>
 					</StackLayout>
 				</ListView.Header>
 
