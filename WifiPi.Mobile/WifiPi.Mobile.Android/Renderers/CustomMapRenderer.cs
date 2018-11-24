@@ -70,6 +70,7 @@ namespace WifiPi.Mobile.Droid.Renderers
 			(this.Element as CustomMap).OnZoomOnAll += (sender, args) => { this.ZoomOnAll(); };
 			NativeMap.InfoWindowClick += OnMapMarkerClick;
 			this.ZoomOnAll();
+
 		}
 
 		public async void ZoomOnAll()

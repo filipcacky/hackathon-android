@@ -52,15 +52,27 @@ namespace WifiPi.Mobile.ViewModels
 
 			this.SetFavoriteIcon();
 
-			this.Entries = new Entry[stats.Count];
+			this.Entries = new Entry[stats.Count/2];
+
+			int a = 0;
+			bool set = false;
 			for (int i = 0; i < stats.Count; i++)
 			{
-				var item = stats[i];
-				this.Entries[i] = new Entry(item.Average)
+				if (i % 2 == 0)
 				{
-					Color = this.chartColor,
-					Label = $"{item.HourLbl}"
-				};
+					a++;
+					if (!set)
+					{
+						a = a - 1;
+						set = true;
+					}
+					var item = stats[i];
+					this.Entries[a] = new Entry(item.Average)
+					{
+							Color = this.chartColor,
+							Label = $"{item.HourLbl}"
+					};
+				}
 			}
 
 
